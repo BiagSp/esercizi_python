@@ -62,6 +62,19 @@ class Menu:
         self.piatti = []
         # Creiamo una lista di piatti per Ingredienti
         self.indice_ingredienti = {}
+        self.modifiche = {}
+        
+        
+        
+    # Implementiamo il metodo per salvare le modifiche degli chef
+    def modifiche_menu(self, vecchio_item, nuovo_item, id_dipendente, piatto_modificato):
+        self.modifiche.append({
+            "time_stamp": datetime.now(),
+            "id_dipendente": id_dipendente,
+            "vecchio_item": vecchio_item,
+            "nuovo_item": nuovo_item,
+            "piatto_modificato": piatto_modificato
+        }) 
         
     
     def aggiungi_piatto(self, piatto):
@@ -351,49 +364,143 @@ class Chef(Dipendente):
         
     def rimuovi_piatto_dal_menu(self, menu:Menu, nome_piatto):
         if self.autorizzazione_chef():
+            menu.modifiche_menu(
+                vecchio_item=None,
+                nuovo_item={"piatto": nome_piatto},
+                id_dipendente=self.id_dipendente
+            )
             menu.rimuovi_piatto(nome_piatto)      
             return True
         else:
             print(f"Lo chef {self.nome} {self.livello} / {self.ruolo} non ha l'autorizzazioe necessaria")
             return False
     
-def modifica_ingrediente_piatto(self, menu:Menu, ingrediente_vecchio, ingrediente_nuovo, nome_piatto):
-    if self.autorizzazione_chef():
-        piatti_trovati = menu.cerca_piatto_per_ingrediente(ingrediente_vecchio)
-        
-        # Controlliamo se abbiamo una lista di piatti
-        if isinstance(piatti_trovati, list):
-            # Cerchiamo il piatto per nome
-            for piatto in piatti_trovati:
-                if piatto.nome == nome_piatto:
-                    # Modifichiamo gli ingredienti del piatto
-                    if ingrediente_vecchio in menu.indice_ingredienti:
-                        if piatto in menu.indice_ingredienti[ingrediente_vecchio]:
-                            menu.indice_ingredienti[ingrediente_vecchio].remove(piatto)     
-                    
-                    # Aggiorniamo la lista degli ingredienti del piatto
-                    if ingrediente_vecchio in piatto.ingredienti:
-                        piatto.ingredienti.remove(ingrediente_vecchio)
-                    piatto.ingredienti.append(ingrediente_nuovo)
-                    
-                    # Aggiungiamo il piatto all'indice del nuovo ingrediente
-                    if ingrediente_nuovo not in menu.indice_ingredienti:
-                        menu.indice_ingredienti[ingrediente_nuovo] = []
-                    menu.indice_ingredienti[ingrediente_nuovo].append(piatto)
-                    
-                    return True
+    def modifica_ingrediente_piatto(self, menu:Menu, ingrediente_vecchio, ingrediente_nuovo, nome_piatto):
+        if self.autorizzazione_chef():
+            piatti_trovati = menu.cerca_piatto_per_ingrediente(ingrediente_vecchio)
             
-            # Messaggio perché non abbiamo trovato il piatto
-            print(f"Nessun piatto trovato con il nome {nome_piatto} contenente l'ingrediente {ingrediente_vecchio}")
-            return False
+            # Controlliamo se abbiamo una lista di piatti
+            if isinstance(piatti_trovati, list):
+                # Cerchiamo il piatto per nome
+                for piatto in piatti_trovati:
+                    if piatto.nome == nome_piatto:
+                        # Modifichiamo gli ingredienti del piatto
+                        if ingrediente_vecchio in menu.indice_ingredienti:
+                            if piatto in menu.indice_ingredienti[ingrediente_vecchio]:
+                                menu.indice_ingredienti[ingrediente_vecchio].remove(piatto)    
+                                
+                                 
+                        
+                        # Aggiorniamo la lista degli ingredienti del piatto
+                        if ingrediente_vecchio in piatto.ingredienti:
+                            piatto.ingredienti.remove(ingrediente_vecchio)
+                        piatto.ingredienti.append(ingrediente_nuovo)
+                        
+                        # Aggiungiamo il piatto all'indice del nuovo ingrediente
+                        if ingrediente_nuovo not in menu.indice_ingredienti:
+                            menu.indice_ingredienti[ingrediente_nuovo] = []
+                        menu.indice_ingredienti[ingrediente_nuovo].append(piatto)
+                        
+                        
+                        
+                        menu.modifiche_menu(
+                                    vecchio_item = {"vecchio_ingrediente": ingrediente_vecchio, "piatto_nome": nome_piatto},
+                                    nuovo_item = {"nuovo_ingrediente": ingrediente_nuovo, "piatto_nome": nome_piatto},
+                                    id_dipendente = self.id_dipendente,
+                                )
+                        
+                        
+                        return True
+            
+                # Messaggio perché non abbiamo trovato il piatto
+                print(f"Nessun piatto trovato con il nome {nome_piatto} contenente l'ingrediente {ingrediente_vecchio}")
+                return False
+            else:
+                # Questo else si riferisce al caso in cui piatti_trovati NON è una lista
+                print(piatti_trovati)  # Stampa il messaggio di errore restituito dalla ricerca
+                return False
         else:
-            # Questo else si riferisce al caso in cui piatti_trovati NON è una lista
-            print(piatti_trovati)  # Stampa il messaggio di errore restituito dalla ricerca
-            return False
-    else:
-        # Questo else si riferisce alla mancanza di autorizzazione
-        print(f"Lo chef {self.nome} {self.cognome} non ha l'autorizzazione necessaria")
-        return False                     
+            # Questo else si riferisce alla mancanza di autorizzazione
+            print(f"Lo chef {self.nome} {self.cognome} non ha l'autorizzazione necessaria")
+            return False                     
+    
+    
+    
+    
+class Cameriere(Dipendente):
+    def __init__(self, nome, cognome, stipendio):
+        super().__init__(nome, cognome, stipendio, RuoloDipendente.CAMERIERE)
+        self.tavoli_assegnati = []
+        self.tips = 0.0
+        
+    def assegna_tavoli(self, numero_tavolo):
+        # Assegniamo i tavoli al cameriere
+        if numero_tavolo not in self.tavoli_assegnati:
+            self.assegna_tavoli.append(numero_tavolo)
+            return f"Tavolo/i {numero_tavolo} asegnato a {self.id_dipendente}"
+        return f"Tavolo {numero_tavolo} già asseggnato a {self.id_dipendente}"
+    # Si potrebbe implementare un metodo di ricerca a chi è stato assegnato il tavolo, forse?
+    
+    def rimuovi_tavolo(self, numero_tavolo):
+        if numero_tavolo in self.tavoli_assegnati:
+            self.tavoli_assegnati.remove(numero_tavolo)
+            return f"Tavolo {numero_tavolo} rimosso dagli incarichi di {self.nome} {self.cognome}"
+        return f"Tavolo {numero_tavolo} non assegnato a questo cameriere"
+    
+    
+    
+    def prendi_ordine(self, numero_tavolo, menu:Menu, piatti_richiesti):
+        if numero_tavolo in self.tavoli_assegnati:
+            ordine = Ordine(numero_tavolo)
+            for nome_piatto, quantita in piatti_richiesti.items():
+                piatto_trovato = False
+                for piatto in menu.piatti:
+                    if piatto.nome == nome_piatto:
+                        ordine.aggiunngi_piatti_ordine(piatto, quantita)
+                        piatto_trovato = True
+                        break
+                if not piatto_trovato:
+                    print(f"Piatto {nome_piatto} non trovato nel menu")
+            
+            return ordine
+        else:
+            return f"Tavolo {numero_tavolo} non assegnato a questo cameriere"
+                    
+    def aggiorna_stato_ordine(self, ordine:Ordine, nuovo_stato):
+        if ordine.numero_tavolo in self.tavoli_assegnati:
+            if not isinstance(nuovo_stato, StatoOrdine):
+                raise TypeError("Lo stato deve essere un'istanza di StatoOrdine")
+            
+            stato_attuale = ordine.stato
+            
+            transizioni_valide ={
+                StatoOrdine.RICEVUTO: [StatoOrdine.IN_PREPARAZIONE],
+                StatoOrdine.IN_PREPARAZIONE: [StatoOrdine.SERVITO],
+                StatoOrdine.SERVITO: [StatoOrdine.PAGATO],
+                StatoOrdine.PAGATO: []
+            }
+            
+            if nuovo_stato in transizioni_valide[stato_attuale]:
+                ordine.stato = nuovo_stato
+                return f"Stato dell'ordine aggiornato a {nuovo_stato.value}"
+            else:
+                return f"Transizione non valida da {stato_attuale.value} a {nuovo_stato.value}"
+        else:
+            return f"Tavolo {ordine.numero_tavolo} non assegnato a questo cameriere"
+                           
+    def aggiungi_mancia(self, importo):
+        if importo > 0:
+            self.tips += importo
+            return f"Mancia di {importo}€ registrata"
+        return "importo mancia > di 0"
+    
+    
+    def calcola_stipendio(self, ore_lavorate, ore_mensili_standard = 160):
+        stipendio_base =  super().calcola_stipendio(ore_lavorate, ore_mensili_standard)
+        return stipendio_base + self.tips
+    
+    
+    
     
 
 class Ristorante:
