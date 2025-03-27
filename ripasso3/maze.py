@@ -1,0 +1,149 @@
+import time
+import queue
+import os
+
+maze = [
+    ["#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#"],
+    ["#", "O", " ", " ", " ", " ", " ", " ", "#", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", "#"],
+    ["#", "#", "#", " ", "#", "#", "#", " ", "#", " ", "#", "#", "#", "#", "#", "#", "#", "#", " ", "#"],
+    ["#", " ", " ", " ", "#", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", "#", " ", "#"],
+    ["#", " ", "#", "#", "#", " ", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#", " ", "#", " ", "#"],
+    ["#", " ", "#", " ", " ", " ", "#", " ", " ", " ", " ", " ", " ", " ", " ", "#", " ", "#", " ", "#"],
+    ["#", " ", "#", " ", "#", "#", "#", " ", "#", "#", "#", "#", "#", "#", " ", "#", " ", "#", " ", "#"],
+    ["#", " ", "#", " ", " ", " ", " ", " ", "#", " ", " ", " ", " ", "#", " ", "#", " ", " ", " ", "#"],
+    ["#", " ", "#", "#", "#", "#", "#", "#", "#", " ", "#", "#", " ", "#", " ", "#", "#", "#", "#", "#"],
+    ["#", " ", " ", " ", " ", " ", " ", " ", " ", " ", "#", " ", " ", "#", " ", " ", " ", " ", " ", "#"],
+    ["#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#", " ", "#", "#", "#", "#", "#", " ", "#", "#"],
+    ["#", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", "#", " ", " ", "#"],
+    ["#", " ", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#", " ", "#", "#", " ", "#"],
+    ["#", " ", " ", " ", "#", " ", " ", " ", " ", " ", " ", " ", " ", " ", "#", " ", " ", "#", " ", "#"],
+    ["#", "#", "#", " ", "#", " ", "#", "#", "#", "#", "#", "#", "#", " ", "#", "#", " ", "#", " ", "#"],
+    ["#", " ", " ", " ", "#", " ", " ", " ", " ", " ", " ", " ", "#", " ", " ", "#", " ", "#", " ", "#"],
+    ["#", " ", "#", "#", "#", "#", "#", "#", "#", "#", "#", " ", "#", "#", " ", "#", " ", "#", " ", "#"],
+    ["#", " ", " ", " ", " ", " ", " ", " ", " ", " ", "#", " ", " ", "#", " ", " ", " ", " ", "X", "#"],
+    ["#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#"]
+]
+
+
+# Il labirinto che hai fornito
+
+def clear_screen():
+    """Pulisce lo schermo in modo compatibile con Windows."""
+    os.system('cls' if os.name == 'nt' else 'clear')
+
+def print_maze(maze, path=None, elapsed=None):
+    """Stampa il labirinto con il percorso evidenziato."""
+    clear_screen()
+    
+    for i, row in enumerate(maze):
+        line = ""
+        for j, value in enumerate(row):
+            if path and (i, j) in path:
+                line += "X "  # Usa 'X' per il percorso
+            else:
+                line += value + " "
+        print(line)
+    
+    # Mostra il tempo trascorso
+    if elapsed is not None:
+        print(f"\nTempo trascorso: {elapsed:.4f} secondi")
+
+def find_start(maze, start):
+    """Trova la posizione di partenza nel labirinto."""
+    for i, row in enumerate(maze):
+        for j, value in enumerate(row):
+            if value == start:
+                return i, j
+    return None
+
+def find_path(maze, with_visualization=True, delay=0.1):
+    """Trova il percorso nel labirinto usando BFS e misura il tempo."""
+    start_time = time.time()
+    
+    start = "O"
+    end = "X"
+    start_pos = find_start(maze, start)
+
+    q = queue.Queue()
+    q.put((start_pos, [start_pos]))
+
+    visited = set()
+    nodes_explored = 0
+
+    while not q.empty():
+        current_pos, path = q.get()
+        row, col = current_pos
+        nodes_explored += 1
+
+        # Calcola il tempo trascorso
+        current_time = time.time()
+        elapsed = current_time - start_time
+
+        # Visualizza il progresso se richiesto
+        if with_visualization:
+            print_maze(maze, path, elapsed)
+            print(f"Nodi esplorati: {nodes_explored}")
+            time.sleep(delay)  # Aggiungi un ritardo per visualizzare il processo
+
+        # Controlla se abbiamo raggiunto l'uscita
+        if maze[row][col] == end:
+            end_time = time.time()
+            total_time = end_time - start_time
+            return path, total_time, nodes_explored
+
+        # Esplora i vicini
+        neighbors = find_neighbors(maze, row, col)
+        for neighbor in neighbors:
+            if neighbor in visited:
+                continue
+
+            r, c = neighbor
+            if maze[r][c] == "#":
+                continue
+
+            new_path = path + [neighbor]
+            q.put((neighbor, new_path))
+            visited.add(neighbor)
+
+    # Nessun percorso trovato
+    end_time = time.time()
+    total_time = end_time - start_time
+    return None, total_time, nodes_explored
+
+def find_neighbors(maze, row, col):
+    """Trova i vicini validi di una cella."""
+    neighbors = []
+
+    if row > 0:  # UP
+        neighbors.append((row - 1, col))
+    if row + 1 < len(maze):  # DOWN
+        neighbors.append((row + 1, col))
+    if col > 0:  # LEFT
+        neighbors.append((row, col - 1))
+    if col + 1 < len(maze[0]):  # RIGHT
+        neighbors.append((row, col + 1))
+
+    return neighbors
+
+def main():
+    """Funzione principale per eseguire l'algoritmo di ricerca."""
+    print("Ricerca del percorso nel labirinto...")
+    
+    # Esegui l'algoritmo con visualizzazione
+    path, time_taken, nodes = find_path(maze, with_visualization=True, delay=0.1)
+    
+    # Visualizza i risultati finali
+    clear_screen()
+    if path:
+        print_maze(maze, path)
+        print(f"\nPercorso trovato in {time_taken:.4f} secondi!")
+        print(f"Lunghezza del percorso: {len(path)} passi")
+        print(f"Nodi esplorati: {nodes}")
+    else:
+        print_maze(maze)
+        print(f"\nNessun percorso trovato dopo {time_taken:.4f} secondi!")
+    
+    input("\nPremi Enter per uscire...")
+
+if __name__ == "__main__":
+    main()

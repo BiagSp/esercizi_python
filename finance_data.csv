@@ -1,0 +1,26 @@
+date,amount,category,description
+
+18-03-2025,15.0,Income,description transaction test
+18-03-2025,123.0,Income,description test
+18-03-2025,458.0,Income,test desciption transaction test
+19-03-2025,658.0,Income,descriptio test 2
+20-03-2025,245.50,Income,Stipendio mensile
+20-03-2025,35.75,Expense,Spesa al supermercato
+21-03-2025,120.00,Expense,Bolletta elettricità
+21-03-2025,18.90,Expense,Pranzo fuori
+22-03-2025,50.00,Income,Rimborso spese
+22-03-2025,65.30,Expense,Benzina auto
+23-03-2025,800.00,Income,Pagamento progetto freelance
+23-03-2025,22.50,Expense,Cinema e aperitivo
+24-03-2025,130.00,Expense,Abbonamento palestra
+25-03-2025,75.40,Expense,Cena ristorante
+26-03-2025,15.00,Expense,Libri
+27-03-2025,350.00,Income,Vendita oggetti usati
+27-03-2025,42.80,Expense,Spesa farmacia
+28-03-2025,180.00,Expense,Riparazione smartphone
+29-03-2025,200.00,Income,Regalo compleanno
+30-03-2025,85.20,Expense,Abbigliamento
+31-03-2025,1500.00,Income,Bonus lavoro
+01-04-2025,450.00,Expense,Affitto
+02-04-2025,28.90,Expense,Abbonamento streaming
+03-04-2025,325.00,Income,Dividendi investimenti
