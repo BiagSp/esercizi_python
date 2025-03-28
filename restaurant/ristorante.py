@@ -688,9 +688,7 @@ class Ristorante:
 
 # ====== TESTING DEL SISTEMA ====== #
 
-# Import delle librerie necessarie
-from datetime import datetime, timedelta
-from enum import Enum
+
 # Import delle nostre classi (assumendo che siano definite in altri file)
 # from ristorante import Ristorante
 # from dipendente import Dipendente, Chef, Cameriere
