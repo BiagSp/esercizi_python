@@ -4,7 +4,8 @@ Il sistema dovrà gestire menu, ordinazioni, personale e clienti.
 
 """
 from enum import Enum
-from datetime import datetime
+from datetime import datetime, timedelta, time
+
 
 
 
@@ -62,7 +63,7 @@ class Menu:
         self.piatti = []
         # Creiamo una lista di piatti per Ingredienti
         self.indice_ingredienti = {}
-        self.modifiche = {}
+        self.modifiche = []
         
         
         
@@ -288,6 +289,7 @@ class Dipendente:
         if self.contatti: 
             for tipo, valore in self.contatti.items():
                 info += f"{tipo.capitalize()}: {valore}"
+            return info
         else:
             info += " Nessun contatto disponibile"
         
@@ -407,6 +409,7 @@ class Chef(Dipendente):
                                     vecchio_item = {"vecchio_ingrediente": ingrediente_vecchio, "piatto_nome": nome_piatto},
                                     nuovo_item = {"nuovo_ingrediente": ingrediente_nuovo, "piatto_nome": nome_piatto},
                                     id_dipendente = self.id_dipendente,
+                                    piatto_modificato = piatto                             
                                 )
                         
                         
@@ -436,7 +439,7 @@ class Cameriere(Dipendente):
     def assegna_tavoli(self, numero_tavolo):
         # Assegniamo i tavoli al cameriere
         if numero_tavolo not in self.tavoli_assegnati:
-            self.assegna_tavoli.append(numero_tavolo)
+            self.tavoli_assegnati.append(numero_tavolo)
             return f"Tavolo/i {numero_tavolo} asegnato a {self.id_dipendente}"
         return f"Tavolo {numero_tavolo} già asseggnato a {self.id_dipendente}"
     # Si potrebbe implementare un metodo di ricerca a chi è stato assegnato il tavolo, forse?
@@ -469,7 +472,7 @@ class Cameriere(Dipendente):
     def aggiorna_stato_ordine(self, ordine:Ordine, nuovo_stato):
         if ordine.numero_tavolo in self.tavoli_assegnati:
             if not isinstance(nuovo_stato, StatoOrdine):
-                raise TypeError("Lo stato deve essere un'istanza di StatoOrdine")
+                raise TypeError("Lo stato d'ordine deve essere un'istanza di StatoOrdine")
             
             stato_attuale = ordine.stato
             
@@ -504,5 +507,315 @@ class Cameriere(Dipendente):
     
 
 class Ristorante:
-    def __init__(self):
-        pass
+    def __init__(self, nome, indirizzo, telefono, orari_apertura = None):
+        self.nome = nome
+        self.indirizzo = indirizzo
+        self.telefono = telefono
+        self.menu = Menu()
+        self.dipendenti = []
+        self.tavoli = {}
+        self.ordini_attivi = []
+        self.storico_ordini = []
+        
+        
+        if orari_apertura is None:
+            self.orari_apertura = {
+            'lunedì': {'pranzo': ('12:00', '15:00'), 'cena': ('19:00', '23:00')},
+            'martedì': {'pranzo': ('12:00', '15:00'), 'cena': ('19:00', '23:00')},
+            'mercoledì': {'pranzo': ('12:00', '15:00'), 'cena': ('19:00', '23:00')},
+            'giovedì': {'pranzo': ('12:00', '15:00'), 'cena': ('19:00', '23:00')},
+            'venerdì': {'pranzo': ('12:00', '15:00'), 'cena': ('19:00', '23:00')},
+            'sabato': {'pranzo': ('12:00', '15:00'), 'cena': ('19:00', '23:30')},
+            'domenica': {'pranzo': ('12:00', '16:00'), 'cena': ('19:00', '23:00')}
+        }
+        else:
+            self.orari_apertura = orari_apertura
+        
+    
+    def assumi_dipendente(self, dipendente):
+        if isinstance(dipendente, Dipendente):
+            for dip in self.dipendenti:
+                if dip.id_dipendente == dipendente.id_dipendente:
+                    return f"dipendente: {dipendente} già assunto"
+                
+            self.dipendenti.append(dipendente)
+            return f"Dipendente {dipendente.nome} {dipendente.cognome} / {dipendente.id_dipendente} assunto."
+
+        else:
+            raise TypeError("L'oggetto fornito deve essere un'istanza della classe Dipendente")
+        
+        
+    def licenzia_dipendente(self, dipendente):
+        if isinstance(dipendente, Dipendente):
+            for dip in self.dipendenti:
+                if dip.id_dipendente == dipendente.id_dipendente:
+                    self.dipendenti.remove(dip) 
+                    return f"Il dipendente {dipendente.id_dipendente} / {dipendente.nome} {dipendente.cognome} è stato licenziato"
+                
+            return f"Dipendente con ID {dipendente.id_dipendente} ({dipendente.nome} {dipendente.cognome}) non trovato"
+        else:
+            raise TypeError("L'oggetto deve essere un'istanza della classe Dipendente")      
+        
+        
+    def aggiungi_tavolo(self, numero_tavolo, posti):
+        # Verifichiamo che il numero_tavolo sia un valore valito
+        if not isinstance(numero_tavolo, (int, str)):
+            raise TypeError("Il numero del tavolo deve essere un intero o una stringa")
+        
+        # Controlliamo che non sia già presente nella lista
+        if numero_tavolo in self.tavoli:
+            return f"Il tavolo {numero_tavolo} è già presente nel ristorante"
+        
+        if not isinstance(posti, int) or posti <= 0:
+            raise TypeError("Il numero di posti deve essere un intero positivo")
+        
+        # Aggiungiamo il tavolo al dizionario
+        self.tavoli[numero_tavolo] = {
+            'posti': posti,
+            'occupato': False,
+            'cameriere_assegnato': None
+        }
+        
+        return f"Il tavolo {numero_tavolo} con {posti} posti a sedere, è stato aggiunto"
+    
+    
+    def rimuovi_tavolo(self, numero_tavolo):
+        if numero_tavolo in self.tavoli:
+        # Controlliamo se il tavolo è attualmente in uso
+            if self.tavoli[numero_tavolo].get('occupato', False):
+                return f"Impossibile rimuovere il tavolo {numero_tavolo} perché è attualmente occupato"
+            
+            
+            for dipendente in self.dipendenti:
+                if isinstance(dipendente, Cameriere):
+                    if numero_tavolo in dipendente.tavoli_assegnati:
+                        dipendente.tavoli_assegnati.remove(numero_tavolo)
+                        
+                        
+            del self.tavoli[numero_tavolo]
+            return f"Tavolo {numero_tavolo} rimosso con successo"
+        else:
+            return f"Tavolo {numero_tavolo} non trovato nel ristorante"
+        
+    def assegna_tavolo_a_cameriere(self, numero_tavolo, dipendente):
+        # Verifichiamo che il tavolo esista
+        if numero_tavolo not in self.tavoli:
+            return f"Tavolo {numero_tavolo} non presente nel ristorante"
+        
+        # Verifichiamo che il dipendente sia un cameriere
+        if not isinstance(dipendente, Cameriere):
+            raise TypeError("L'oggetto deve essere un'istanza della classe Cameriere")
+        
+        # Controlliamo se il tavolo è già assegnato a un altro cameriere
+        for dip in self.dipendenti:
+            if isinstance(dip, Cameriere) and dip != dipendente and numero_tavolo in dip.tavoli_assegnati:
+                return f"Tavolo {numero_tavolo} già assegnato al cameriere {dip.nome} {dip.cognome}"
+        
+        # Aggiorniamo le informazioni del tavolo
+        self.tavoli[numero_tavolo]['cameriere_assegnato'] = dipendente.id_dipendente
+        
+        # Aggiorniamo la lista dei tavoli del cameriere
+        risultato = dipendente.assegna_tavoli(numero_tavolo)
+        
+        return f"Al cameriere {dipendente.nome} {dipendente.cognome} è stato assegnato il tavolo {numero_tavolo}"
+    
+    
+    def calcola_totale_stipendi(self, ore_lavorate, ore_mensili_standard=160):
+        totale_stipendi = 0
+        
+        for dipendente in self.dipendenti:
+            try:
+                stipendio_dipendente = dipendente.calcola_stipendio(ore_lavorate, ore_mensili_standard)
+                totale_stipendi += stipendio_dipendente
+            except (AttributeError, TypeError):
+                print(f"Avviso: Impossibile calcolare lo stipendio per: {dipendente}")
+        
+        return totale_stipendi
+    
+    def calcola_incasso_per_servizio(self, data_inizio, data_fine):
+        
+        risultati = {
+            'pranzo': 0,
+            'cena': 0,
+            'fuori_servizio': 0
+        }
+        
+        for ordine in self.storico_ordini:
+            if not (ordine.stato == StatoOrdine.PAGATO and data_inizio <= ordine.orario_creazione <= data_fine):
+                continue
+            giorno = ordine.orario_creazione.strftime('%A').lower()
+            if giorno == 'monday': giorno = 'lunedì'
+            elif giorno == 'tuesday': giorno = 'martedì'
+            elif giorno == 'wednesday': giorno = 'mercoledì'
+            elif giorno == 'thursday': giorno = 'giovedì'
+            elif giorno == 'friday': giorno = 'venerdì'
+            elif giorno == 'saturday': giorno = 'sabato'
+            elif giorno == 'sunday': giorno = 'domenica'
+            
+            # Calcoliamo il totale ordine
+            totale_ordine = 0
+            for _, dettagli in ordine.piatti_ordinati.items():
+                piatto = dettagli['piatto']
+                quantita = dettagli['quantità']
+                
+                totale_ordine += piatto.prezzo * quantita
+                
+            ora_ordine = ordine.orario_creazione.time()
+            servizio_trovato = False
+            # Controlliamo in quale servizio rientra l'ordine
+            for servizio, (inizio_str, fine_str) in self.orari_apertura[giorno].items():
+                # Convertiamo le stringhe di orario in oggetti time
+                h_inizio, m_inizio = map(int, inizio_str.split(':'))
+                h_fine, m_fine = map(int, fine_str.split(':'))
+                
+                ora_inizio = time(h_inizio, m_inizio)
+                ora_fine = time(h_fine, h_fine)
+                
+                if ora_inizio <= ora_ordine <=ora_fine:
+                    risultati[servizio] += totale_ordine
+                    servizio_trovato = True
+                    break
+                
+                if not servizio_trovato:
+                    risultati['fuori_servizio'] += totale_ordine
+                    
+        return risultati
+                
+            
+            
+            
+
+
+# ====== TESTING DEL SISTEMA ====== #
+
+# Import delle librerie necessarie
+from datetime import datetime, timedelta
+from enum import Enum
+# Import delle nostre classi (assumendo che siano definite in altri file)
+# from ristorante import Ristorante
+# from dipendente import Dipendente, Chef, Cameriere
+# from menu import Menu, Piatto, CategoriaEnum
+# from ordine import Ordine, StatoOrdine
+
+def main():
+    """Funzione principale per testare il sistema di gestione ristorante."""
+    print("Avvio del test del sistema di gestione ristorante...")
+    
+    # 1. Creazione del ristorante
+    ristorante = Ristorante("La Buona Cucina", "Via Roma 123, Milano", "+39 02 1234567")
+    print(f"Ristorante creato: {ristorante.nome}")
+    
+    # 2. Aggiunta di personale
+    chef_esecutivo = Chef("Marco", "Rossi", 3000, LivelloChef.EXECUTIVE_CHEF)
+    chef_sous = Chef("Laura", "Verdi", 2500, LivelloChef.SOUS_CHEF)
+    cameriere1 = Cameriere("Giuseppe", "Bianchi", 1800)
+    cameriere2 = Cameriere("Sofia", "Neri", 1800)
+    
+    # Assunzione del personale
+    print("\nAssunzione del personale:")
+    print(ristorante.assumi_dipendente(chef_esecutivo))
+    print(ristorante.assumi_dipendente(chef_sous))
+    print(ristorante.assumi_dipendente(cameriere1))
+    print(ristorante.assumi_dipendente(cameriere2))
+    
+    # 3. Creazione del menu
+    print("\nCreazione del menu:")
+    pasta_pomodoro = Piatto("Pasta al Pomodoro", "Pasta con salsa di pomodoro fresco e basilico", 
+                             10.50, CategoriaEnum.PRIMO, ["pasta", "pomodoro", "basilico"], 15)
+    risotto_funghi = Piatto("Risotto ai Funghi", "Risotto con funghi porcini e parmigiano", 
+                            14.00, CategoriaEnum.PRIMO, ["riso", "funghi", "parmigiano"], 20)
+    bistecca = Piatto("Bistecca alla Fiorentina", "Bistecca di manzo alla griglia", 
+                      25.00, CategoriaEnum.SECONDO, ["manzo", "rosmarino"], 25)
+    tiramisu = Piatto("Tiramisù", "Dolce classico italiano con caffè e mascarpone", 
+                       8.00, CategoriaEnum.DESSERT, ["mascarpone", "caffè", "cacao"], 10)
+    
+    # Lo chef esecutivo aggiunge i piatti al menu
+    print(chef_esecutivo.aggiungi_piatto_al_menu(ristorante.menu, pasta_pomodoro))
+    print(chef_esecutivo.aggiungi_piatto_al_menu(ristorante.menu, risotto_funghi))
+    print(chef_esecutivo.aggiungi_piatto_al_menu(ristorante.menu, bistecca))
+    print(chef_esecutivo.aggiungi_piatto_al_menu(ristorante.menu, tiramisu))
+    
+    # Lo chef sous prova a modificare un ingrediente
+    print("\nModifica di un ingrediente:")
+    print(chef_sous.modifica_ingrediente_piatto(ristorante.menu, "pomodoro", "pomodorini", "Pasta al Pomodoro"))
+    
+    # 4. Gestione dei tavoli
+    print("\nAggiunta di tavoli:")
+    print(ristorante.aggiungi_tavolo(1, 4))  # Tavolo 1 con 4 posti
+    print(ristorante.aggiungi_tavolo(2, 2))  # Tavolo 2 con 2 posti
+    print(ristorante.aggiungi_tavolo(3, 6))  # Tavolo 3 con 6 posti
+    print(ristorante.aggiungi_tavolo(4, 4))  # Tavolo 4 con 4 posti
+    
+    # 5. Assegnazione dei tavoli ai camerieri
+    print("\nAssegnazione dei tavoli:")
+    print(ristorante.assegna_tavolo_a_cameriere(1, cameriere1))
+    print(ristorante.assegna_tavolo_a_cameriere(2, cameriere1))
+    print(ristorante.assegna_tavolo_a_cameriere(3, cameriere2))
+    print(ristorante.assegna_tavolo_a_cameriere(4, cameriere2))
+    
+    # 6. Gestione degli ordini
+    print("\nCreazione degli ordini:")
+    # Creiamo ordini per due tavoli
+    ordine_tavolo1 = cameriere1.prendi_ordine(1, ristorante.menu, {
+        "Pasta al Pomodoro": 2,
+        "Tiramisù": 2
+    })
+    
+    ordine_tavolo3 = cameriere2.prendi_ordine(3, ristorante.menu, {
+        "Risotto ai Funghi": 3,
+        "Bistecca alla Fiorentina": 2,
+        "Tiramisù": 5
+    })
+    
+    # Aggiungiamo gli ordini alla lista degli ordini attivi
+    ristorante.ordini_attivi.append(ordine_tavolo1)
+    ristorante.ordini_attivi.append(ordine_tavolo3)
+    print(f"Ordini attivi: {len(ristorante.ordini_attivi)}")
+    
+    # 7. Gestiamo il flusso degli ordini
+    print("\nAggiornamento degli stati degli ordini:")
+    # Aggiorniamo lo stato degli ordini
+    print(cameriere1.aggiorna_stato_ordine(ordine_tavolo1, StatoOrdine.IN_PREPARAZIONE))
+    print(cameriere2.aggiorna_stato_ordine(ordine_tavolo3, StatoOrdine.IN_PREPARAZIONE))
+    
+    # Ordini serviti
+    print(cameriere1.aggiorna_stato_ordine(ordine_tavolo1, StatoOrdine.SERVITO))
+    print(cameriere2.aggiorna_stato_ordine(ordine_tavolo3, StatoOrdine.SERVITO))
+    
+    # Ordini pagati
+    print(cameriere1.aggiorna_stato_ordine(ordine_tavolo1, StatoOrdine.PAGATO))
+    print(cameriere2.aggiorna_stato_ordine(ordine_tavolo3, StatoOrdine.PAGATO))
+    
+    # Spostiamo gli ordini completati nello storico
+    ristorante.storico_ordini.append(ordine_tavolo1)
+    ristorante.storico_ordini.append(ordine_tavolo3)
+    ristorante.ordini_attivi.remove(ordine_tavolo1)
+    ristorante.ordini_attivi.remove(ordine_tavolo3)
+    print(f"Ordini attivi: {len(ristorante.ordini_attivi)}, Storico ordini: {len(ristorante.storico_ordini)}")
+    
+    # Registriamo una mancia per il cameriere1
+    print("\nMance:")
+    print(cameriere1.aggiungi_mancia(10.0))
+    
+    # 8. Analizziamo i dati finanziari
+    print("\nAnalisi finanziarie:")
+    # Calcoliamo il totale degli stipendi
+    totale_stipendi = ristorante.calcola_totale_stipendi(160)  # 160 ore mensili standard
+    print(f"Totale stipendi mensili: {totale_stipendi:.2f} €")
+    
+    # Calcoliamo gli incassi per un periodo
+    data_inizio = datetime.now() - timedelta(days=7)  # Una settimana fa
+    data_fine = datetime.now()
+    incassi = ristorante.calcola_incasso_per_servizio(data_inizio, data_fine)
+    print(f"Incasso totale dell'ultima settimana: {incassi} €")
+    
+    # Analizziamo gli incassi per servizio
+    incassi_per_servizio = ristorante.calcola_incasso_per_servizio(data_inizio, data_fine)
+    print("Incassi per servizio:")
+    for servizio, importo in incassi_per_servizio.items():
+        print(f"  {servizio.capitalize()}: {importo} €")
+    
+    print("\nTest completato con successo!")
+
+if __name__ == "__main__":
+    main()
