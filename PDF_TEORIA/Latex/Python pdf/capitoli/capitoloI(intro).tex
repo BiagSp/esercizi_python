@@ -1,0 +1,106 @@
+\newpage
+
+\section{Introduzione a Python}
+
+Python è un linguaggio di programmazione di alto livello, interpretato, orientato agli oggetti, con una sintassi semplice ed elegante. La sua popolarità è dovuta alla facilità di apprendimento e alla versatilità che lo rende adatto a molteplici ambiti.
+
+\subsection{Caratteristiche Principali}
+    \begin{itemize}
+        \item  \textbf{Leggibilità}: La sintassi progettata per essere chiara e leggibile
+        \item   \textbf{Versatilità}: Adatto a diversi contesti (web, data science, automazione, ecc.)
+        \item \textbf{Gestione automatica della memoria}: Non è necessario allocare o deallocare manualmente la memoria
+    \end{itemize}
+
+\subsection{Installazione}
+Il primo passo da compiere per iniziare a programmare con Python è installarlo sul proprio sistema. Python è disponibile per tutti i principali sistemi operativi: Windows, macOS e Linux.
+\subsubsection{Scelta della versione}
+Attualmente esistono due versioni principali di Python: Python 2 e Python 3. Si consiglia vivamente di utilizzare Python 3, poiché Python 2 non è più supportato dal gennaio 2020 e molte librerie moderne funzionano esclusivamente con Python 3.
+\subsubsection{Download e installazione}
+\begin{itemize}
+\item \textbf{Windows}:
+\begin{enumerate}
+\item Visita il sito ufficiale Python (\url{https://www.python.org/downloads/})
+\item Scarica l'ultima versione di Python 3 (ad esempio Python 3.11.x)
+\item Esegui il file di installazione scaricato
+\item \textbf{Importante:} Nella finestra di installazione, seleziona la casella \texttt{Add Python to PATH} prima di procedere
+\item Clicca su \texttt{Install Now} per un'installazione standard o \texttt{Customize installation} per opzioni avanzate
+\end{enumerate}
+\item \textbf{macOS}:
+\begin{enumerate}
+    \item Visita il sito ufficiale Python (\url{https://www.python.org/downloads/})
+    \item Scarica l'ultima versione di Python 3 per macOS
+    \item Apri il file .pkg scaricato e segui le istruzioni di installazione
+    \item In alternativa, se utilizzi Homebrew, puoi installare Python con il comando \texttt{brew install python3}
+\end{enumerate}
+
+\item \textbf{Linux}:
+\begin{enumerate}
+    \item Molte distribuzioni Linux includono già Python preinstallato. Puoi verificare la versione con \texttt{python3 --version} dal terminale
+    \item Su Ubuntu/Debian: \texttt{sudo apt update \&\& sudo apt install python3 python3-pip}
+    \item Su Fedora: \texttt{sudo dnf install python3}
+    \item Su Arch Linux: \texttt{sudo pacman -S python python-pip}
+\end{enumerate}
+\end{itemize}
+\subsubsection{Verifica dell'installazione}
+Dopo l'installazione, è importante verificare che Python sia stato installato correttamente:
+\begin{enumerate}
+\item Apri il terminale (Command Prompt o PowerShell su Windows, Terminal su macOS/Linux)
+\item Digita \texttt{python --version} o \texttt{python3 --version}
+\item Dovresti vedere in output la versione di Python installata, ad esempio \texttt{Python 3.11.4}
+\end{enumerate}
+\subsubsection{Gestione dei pacchetti con pip}
+Python include un gestore di pacchetti chiamato pip, che permette di installare facilmente librerie aggiuntive. Per verificare che pip sia installato:
+\begin{enumerate}
+\item Dal terminale, esegui \texttt{pip --version} o \texttt{pip3 --version}
+\item Dovresti vedere la versione di pip installata
+\end{enumerate}
+Per installare una libreria, usa il comando:
+\begin{lstlisting}
+pip install nome_libreria
+\end{lstlisting}
+\subsubsection{Ambienti virtuali}
+Per i progetti più complessi, è consigliabile utilizzare ambienti virtuali per mantenere le dipendenze separate. Per creare un ambiente virtuale:
+\begin{lstlisting}
+Creazione dell'ambiente virtuale
+python -m venv mio_ambiente
+Attivazione dell'ambiente virtuale
+Su Windows
+mio_ambiente\Scripts\activate
+Su macOS/Linux
+source mio_ambiente/bin/activate
+\end{lstlisting}
+\subsubsection{Opzioni alternative}
+Se preferisci non installare Python direttamente sul tuo sistema, puoi considerare:
+\begin{itemize}
+\item \textbf{Anaconda}: Una distribuzione Python che include molte librerie scientifiche (\url{https://www.anaconda.com/})
+\item \textbf{Piattaforme online}:
+\begin{itemize}
+\item Google Colab: Per notebook Python eseguiti nel browser
+\item Replit: Per sviluppo Python online
+\item PythonAnywhere: Ambiente Python basato su cloud
+\item Deepnote come Replit, ambiente di sviluppo online
+\end{itemize}
+\end{itemize}
+
+\subsection{Il tuo primo programma Python}\label{primoProgramma}
+
+Ecco un esempio classico per iniziare con Python che include sia l'output che l'input:
+
+\begin{lstlisting}
+# Il mio primo programma Python
+print("Hello, World!")  # Stampa un messaggio a schermo
+
+# Richiesta di input all'utente
+nome = input("Come ti chiami? ")
+print(f"Ciao {nome}, benvenuto nel mondo di Python!")
+\end{lstlisting}
+
+\begin{nota}
+\textbf{Come eseguire il codice Python:}
+\begin{enumerate}
+    \item \textbf{Da terminale}: Salva il codice in un file con estensione .py (es. primo\_programma.py) e eseguilo con il comando \texttt{python primo\_programma.py}
+    \item \textbf{Da IDE}: Usa un ambiente di sviluppo come PyCharm, Visual Studio Code o IDLE (incluso nell'installazione di Python)
+    \item \textbf{Da notebook}: Jupyter Notebook permette di eseguire il codice in celle interattive
+    \item \textbf{Online}: Servizi come replit.com o Google Colab permettono di scrivere ed eseguire codice Python senza installazioni
+\end{enumerate}
+\end{nota}

@@ -1,0 +1,68 @@
+\clearpage
+\subsection{Operatori}\label{Operatori}
+In questa sottosezione andremo a visionare i principali Operatori presenti su Python, possiamo considerarli come "strumenti" che permettono di manipolare dati, eseguire calcoli e prendere decisioni all'interno del codice. Gli opreatori sono essenzialmente simboli speciale che indicano al computer di eseguire operazioni specifiche sui valori (o operandi) a cui sono applicati.
+
+Alcuni di essi possono risultare alquanto ambigui per la loro essenza e semplicità ma rappresentano un valore chiave per la comprensione dell'azione che bisogna eseguire.
+
+
+\begin{itemize}
+    \item \textbf{Operatori aritmetici}: permettono di eseguire calcoli matematici sui numeri
+    \item \textbf{Operatori di confronto}: consentono di comparare valori e restituiscono risultati booleani (vero o falso)
+    \item \textbf{Operatori logici}: permettono di combinare condizioni booleane e sono essenziali nelle strutture decisionali
+\end{itemize}
+
+
+Accanto agli operatori, le funzionalità di input e output rappresentano le "porte" attraverso cui un programma comunica con l'utente o con l'ambiente esterno. Attraverso queste funzioni, i programmi possono acquisire dati, presentare risultati e interagire con chi li utilizza.
+
+Gli esempi che seguono illustrano la sintassi e l'uso pratico di ciascun tipo di operatore e delle funzioni di input/output di base in Python.
+
+
+\subsubsection{Operatori aritmetici}\label{operatoriMatemateci}
+\begin{lstlisting}
+a = 10
+b = 3
+
+somma = a + b          # 13
+differenza = a - b     # 7
+prodotto = a * b       # 30
+divisione = a / b      # 3.3333... (divisione che restituisce float)
+div_intera = a // b    # 3 (divisione intera)
+modulo = a % b         # 1 (resto della divisione)
+potenza = a ** b       # 1000 (a elevato alla b)
+\end{lstlisting}
+
+\subsubsection{Operatori di confronto}
+\begin{lstlisting}
+a == b    # Uguaglianza (False)
+a != b    # Disuguaglianza (True)
+a > b     # Maggiore (True)
+a < b     # Minore (False)
+a >= b    # Maggiore o uguale (True)
+a <= b    # Minore o uguale (False)
+\end{lstlisting}
+
+\subsubsection{Operatori logici}\label{opLogici}
+\begin{lstlisting}
+x = True
+y = False
+
+x and y    # False (AND logico)
+x or y     # True (OR logico)
+not x      # False (NOT logico)
+\end{lstlisting}
+
+
+\subsection{Input e Output}\label{InputOutput}
+\begin{lstlisting}
+# Output sulla console
+print("Ciao, mondo!")
+
+# Input da tastiera
+nome = input("Come ti chiami? ")
+print(f"Ciao, {nome}!")
+
+# Formattazione delle stringhe
+eta = 25
+messaggio = f"Ho {eta} anni."
+print(messaggio)
+\end{lstlisting}

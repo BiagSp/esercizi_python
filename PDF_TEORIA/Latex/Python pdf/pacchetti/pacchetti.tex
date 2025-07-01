@@ -1,0 +1,208 @@
+\UseRawInputEncoding
+
+
+% Pacchetti per lingua e codifica
+\usepackage[italian]{babel}    % Supporto per la lingua italiana
+\usepackage[utf8]{inputenc}    % Supporto per i caratteri UTF-8
+\usepackage[T1]{fontenc}       % Codifica dei font
+
+
+% Pacchetti matematici
+\usepackage{amsmath}           % Per formule matematiche
+\usepackage{amssymb}           % Simboli matematici aggiuntivi
+
+% Pacchetti per layout e struttura
+\usepackage[margin=1.5cm]{geometry} % Margini personalizzati
+\usepackage{fancyhdr}          % Per intestazioni e piè di pagina
+\usepackage{titlesec}          % Personalizzazione titoli
+\usepackage{enumitem}          % Per personalizzare elenchi
+\usepackage{float}             % Posizionamento preciso
+\usepackage{tabularx}          % Tabelle avanzate
+\usepackage{nameref}           % Riferimenti per nome
+\usepackage{pdfpages}          % Inclusione di PDF
+\usepackage{tcolorbox}         % Per creare box colorati
+\tcbuselibrary{breakable,skins} % Estensioni per tcolorbox
+
+% Pacchetti grafici
+\usepackage{graphicx}          % Per includere immagini
+\usepackage{tikz}              % Disegni vettoriali
+\usetikzlibrary{shapes,arrows,positioning,shadows} % Estensioni per tikz
+\usepackage{xcolor}            % Gestione avanzata dei colori
+
+% Pacchetti per il codice
+\usepackage{listings}          % Per inserire blocchi di codice
+
+% Hyperref (caricato alla fine per evitare conflitti)
+\usepackage{hyperref}          % Per link ipertestuali
+
+
+
+\usepackage{booktabs}     % Per linee orizzontali professionali
+\usepackage{siunitx}
+\usepackage{colortbl}     % Per colorare le celle
+\usepackage{array}
+\usepackage{caption} 
+\captionsetup[table]{font=bf, labelfont=bf}  % Bold caption
+\renewcommand{\arraystretch}{1.4}  % Increase row spacing for readability\textbf{}
+\usepackage{ragged2e} % Per un migliore allineamento del testo nelle celle (es. \RaggedRight)
+
+% Configurazioni di pagina
+\pagestyle{plain}              
+
+% Personalizzazione del formato dei capitoli
+\titleformat{\chapter}[display]
+{\normalfont\huge\bfseries\color{blue!70!black}}
+{\chaptertitlename\ \thechapter}{20pt}{\Huge}
+[\vspace{2ex}\hrule\vspace{1ex}]
+
+% Personalizzazione delle sezioni
+\titleformat{\section}
+{\normalfont\Large\bfseries\color{blue!60!black}}
+{\thesection}{1em}{}
+[\vspace{1ex}\hrule height 0.5pt\vspace{1ex}]
+
+% Personalizzazione delle sottosezioni
+\titleformat{\subsection}
+{\normalfont\large\bfseries\color{blue!50!black}}
+{\thesubsection}{1em}{}
+
+% Definizione di stili per tikz
+\tikzstyle{variable}=[draw, fill=blue!20, minimum width=2cm, minimum height=0.8cm, font=\bfseries, text centered]
+\tikzstyle{memory}=[draw, fill=green!20, minimum width=3.5cm, minimum height=1.2cm, rounded corners, font=\bfseries, align=center]
+\tikzstyle{reference}=[->, thick, blue]
+\tikzstyle{label}=[font=\small\bfseries]
+\tikzstyle{section title}=[font=\bfseries\large, text centered, text width=12cm]
+\tikzstyle{subsection title}=[font=\bfseries, text centered, text width=10cm]
+\tikzstyle{explanation}=[text width=12cm, align=center, font=\small]
+\tikzstyle{id label}=[font=\small, text centered]
+
+% Definizione colori per codice
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.95}
+
+% Stile per codice Python
+\lstdefinestyle{pythonstyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{orange},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=true,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2,
+    language=Python,
+    xleftmargin=0.04\textwidth,
+    xrightmargin=0.04\textwidth,
+    linewidth=1.1\textwidth,
+    postbreak=\mbox{\textcolor{red}{$\hookrightarrow$}\space},
+    breakindent=0pt,
+    columns=flexible,
+    commentstyle=\color{codegreen}\raggedright,
+}
+
+
+% Definizione dei colori per una migliore leggibilità
+\definecolor{setA}{RGB}{255,182,193}      % Rosa chiaro per insieme A
+\definecolor{setB}{RGB}{173,216,230}      % Azzurro chiaro per insieme B  
+\definecolor{intersection}{RGB}{221,160,221} % Viola chiaro per intersezione
+\definecolor{union}{RGB}{255,228,196}     % Pesca per unione completa
+
+
+% Configurazione unificata per listings
+\lstset{style=pythonstyle}
+\lstset{
+breaklines=true,             % Permetti il ritorno a capo per il codice
+breakatwhitespace=true,      % Ritorna a capo solo agli spazi bianchi
+style=pythonstyle,
+postbreak=\mbox{\textcolor{red}{$\hookrightarrow$}\space}, % Indicatore di continuazione
+breakindent=0pt,             % Nessuna indentazione dopo il ritorno a capo
+columns=flexible,            % Spaziatura flessibile
+keepspaces=true,             % Mantieni gli spazi
+commentstyle=\color{codegreen}\raggedright, % Impedisci il ritorno a capo nei commenti
+inputencoding=utf8,          % Specifica l'encoding di input
+extendedchars=true,          % Supporto per caratteri estesi
+literate={à}{{`a}}1         % Sostituisce 'à' con il comando LaTeX equivalente
+{è}{{e'}}1         % Sostituisce 'è' con il comando LaTeX equivalente
+{ì}{{`\i}}1        % Sostituisce 'ì' con il comando LaTeX equivalente
+{ò}{{o'}}1         % Sostituisce 'ò' con il comando LaTeX equivalente
+{ù}{{u'}}1         % Sostituisce 'ù' con il comando LaTeX equivalente
+}
+
+% Ambienti personalizzati
+\newenvironment{chapterintro}
+{\begin{tcolorbox}[
+    enhanced,
+    colback=blue!5!white,
+    colframe=blue!75!black,
+    arc=0mm,
+    boxrule=0.5mm,
+    left=5mm,
+    right=5mm,
+    top=5mm,
+    bottom=5mm
+]}
+{\end{tcolorbox}}
+
+\newenvironment{esempio}{\begin{tcolorbox}[colback=blue!5!white,colframe=blue!75!black,title=Esempio]}{\end{tcolorbox}}
+
+\newtcolorbox{nota}[1][]{
+    breakable,
+    title=Nota,
+    colback=blue!5,
+    colframe=blue!75!black,
+    fonttitle=\bfseries,
+    #1
+}
+
+\newtcolorbox{ese}[1][]{
+    breakable,
+    title=Esempio,
+    colback=green!5,
+    colframe=green!75!black,
+    fonttitle=\bfseries,
+    #1
+}
+
+\newtcolorbox{attenzione}[1][]{
+    breakable,
+    title=Attenzione,
+    colback=red!5,
+    colframe=red!75!black,
+    fonttitle=\bfseries,
+    #1
+}
+
+% Comandi personalizzati
+\newcommand{\sectionsep}{
+    \begin{center}
+        \vspace{0.5cm}
+        \textcolor{blue!70!black}{$\ast$ $\ast$ $\ast$}
+        \vspace{0.5cm}
+    \end{center}
+}
+
+\newcommand{\percorsoApprendimento}[2]{
+\begin{center}
+\begin{tikzpicture}
+    \node[draw=blue!70!black, fill=blue!5, rounded corners, text width=0.85\textwidth, inner sep=10pt, drop shadow] {
+        \textbf{Percorso di apprendimento:} #1
+        
+        \vspace{0.3cm}
+        #2
+    };
+    % Aggiungi un indicatore grafico di "continua"
+    \node[right=0.1cm of current bounding box.east, font=\Large\bfseries, text=blue!70!black] {→};
+\end{tikzpicture}
+\end{center}
+}
+

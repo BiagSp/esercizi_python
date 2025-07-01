@@ -1,0 +1,352 @@
+\newpage
+
+\subsection{Esercizi Riassuntivi}\label{EserciziFondamenti}
+In questa sezione andremo a svolgere alcuni esercizi per familiarizzare con i concetti affrontati; a fine sezione si troveranno gli esercizi completi con le soluzioni spiegate passo passo.
+
+\subsubsection{Esercizio 1: Implementazione Input ed Output}\label{esercizioFond:1}
+Dall'esercizio che abbiamo affrontato nella prima sezione "\nameref{primoProgramma}"\\
+- implementare la possibilità di chiedere all'utente la sua età\\
+- calcolare l'anno di nascita \\
+- stampare il messaggio in modo che comprenda nome anno di nascita.
+\begin{lstlisting}
+# Il mio primo programma Python
+print("Hello, World!")  # Stampa un messaggio a schermo
+
+# Richiesta di input all'utente
+nome = input("Come ti chiami? ")
+print(f"Ciao {nome}, benvenuto nel mondo di Python!")
+
+# Aggiungi a questo script la possibilita di chiedere all'utente la sua eta
+
+#Calcolare l'anno di nascita approssimativo (anno corrente - eta)
+
+#Stampare un messaggio personalizzato che includa il nome e l'anno di nascita
+\end{lstlisting}
+
+\subsubsection{Esercizio 2: Identificazione degli errori}\label{esercizioFond:2}
+In questo esercizio viene fornita una serie di variabili la quale denominazione presenta degli errori, identificare gli errori e fornire la denominazione corretta secondo le best practice discusse nella sezione: "\nameref{bestPractice}".
+\begin{lstlisting}
+1nome = "Paolo"  
+nome-cognome = "Mario Rossi"  
+class = "Principiante"  
+
+# Di seguito fornisci le tue correzioni
+\end{lstlisting}
+
+\subsubsection{Esercizio 3: Operazioni Matematiche}\label{esercizioFond:3}
+In questo esercizio dobbiamo dichiarare due variabili numeriche e applicare tutte le possibili operazioni matematiche  (addizione, sottrazione, moltiplicazione, divisione, divisione intera, modulo, potenza) e stampare i relativi risultati.\\
+Le sezioni da ripassare per questo esercizio sono:\\
+- \nameref{operatoriMatemateci}
+
+\begin{lstlisting}
+# Dichiara le 2 variabili
+numero1 = # immetti un tuo numero a piacere
+numero2 = # immetti un tuo numero a piacere
+
+    # Esegui tutte le operazioni matematiche  (addizione, sottrazione, moltiplicazione, divisione, divisione intera, modulo, potenza)
+
+somma = 
+sottrazione = 
+divisione = 
+moltiplicazione = 
+divisione_intera = 
+modulo = 
+potenza = 
+
+\end{lstlisting}
+
+\subsubsection{Esercizio 4: Operatori logici}\label{esercizioFond:4}
+In questo esercizio dovremo capire come funzionano gli operatori logici, l'esercizio fornito ci offre un'espressione logica che dovremo descrivere manualmente per capire il suo significato ed il significato del suo risultato.\\
+\textbf{\textit {Bonus: prova differenti versioni dell'esercizio}}
+
+\begin{lstlisting}
+a = 5
+b = 10
+c = 15
+risultato = (a < b) and (b <= c) or not (a == c)
+print(risultato)
+
+# Spiega perche il risultato del print e' True
+\end{lstlisting}
+
+\subsubsection{Esercizio 5: MiniCalcolatrice}\label{esercizioFond:5}
+In questo esercizio proveremo a creare una mini calcolatrice, chiederemo all'utente di inserire 2 numeri, dopodiché svolgeremo delle operazioni con i numeri chiesti all'utente.\\
+Le sezioni da ripassare per questo esercizio sono le seguenti:\\
+- \nameref{InputOutput}\\
+- \nameref{operatoriMatemateci}
+\vspace{0.3cm}
+\begin{lstlisting}
+# Chiediamo all'utente il primo numero
+primo_numero = 
+# Chiediamo il secondo numero
+secondo_numero = 
+
+# Esegui le operazioni matematiche
+somma =
+divisione = 
+moltiplicazione = 
+
+# Stampa i risultati delle operazioni
+\end{lstlisting}
+
+\begin{tcolorbox}[colback=gray!5!white,colframe=red!75!black,title=Input e Tipi di Dati: Informazioni Importanti]
+\begin{itemize}[leftmargin=*,itemsep=0.8em]
+    \item \textbf{Comportamento del metodo \texttt{input()}}:
+    \begin{itemize}[itemsep=0.2em]
+        \item Il metodo \texttt{input()} restituisce \textbf{sempre} una stringa di testo, anche quando l'utente digita numeri
+        \item Per una mini-calcolatrice, è necessario convertire questi input in numeri per eseguire calcoli matematici
+        \item Se non convertiamo il tipo, l'operazione \texttt{"5" + "3"} produrrà \texttt{"53"} (concatenazione di stringhe) invece di \texttt{8} (somma numerica)
+    \end{itemize}
+    
+    \item \textbf{Conversione dell'input in valori numerici}:
+    \begin{itemize}[itemsep=0.2em]
+        \item \texttt{int(input("Messaggio: "))} converte l'input in un numero intero (senza decimali)
+        \item \texttt{float(input("Messaggio: "))} converte l'input in un numero decimale (con punto)
+        \item Esempio pratico: \texttt{numero1 = float(input("Inserisci il primo numero: "))}
+    \end{itemize}
+    
+    \item \textbf{Suggerimento per la mini-calcolatrice}:
+    \begin{itemize}[itemsep=0.2em]
+        \item Per le operazioni matematiche, è consigliabile usare \texttt{float()} invece di \texttt{int()} per gestire correttamente i numeri decimali
+        \item Assicurati che l'utente inserisca effettivamente dei numeri e non del testo
+        \item Per la divisione, considera cosa succede se l'utente tenta di dividere per zero
+    \end{itemize}
+\end{itemize}
+\end{tcolorbox}
+
+
+\subsubsection{Esercizio 6: Mutabilità  e Immutabilità}\label{esercizioFond:6}
+In questo esercizio dovremo identificare quale e come le variabili mutano o restano immutate.\\
+Descrivi a mano quali variabili mutano e quali no ed il loro perché e come viene allocata la memoria.\\
+Le sezioni da ripassare per questo esercizio sono le seguenti:\\
+- \nameref{mutableImmutable}\\
+- \nameref{variabiliMemoria}
+\vspace{0.3cm}
+\begin{lstlisting}
+# Esempio 1
+x = "hello"
+y = x
+x = "world"
+print(y)  # Cosa verra stampato?
+
+# Esempio 2
+lista_a = [1, 2, 3]
+lista_b = lista_a
+lista_a[0] = 99
+print(lista_b)  # Cosa verra stampato?
+\end{lstlisting}
+
+
+\subsection{Risoluzione Esercizi sui Fondamentali}
+\subsubsection{Risoluzione Esercizio 1: \textit{\nameref{esercizioFond:1}}}
+
+\begin{lstlisting}
+# Il mio primo programma Python
+print("Hello, World!")  # Stampa un messaggio a schermo
+
+# Richiesta di input all'utente
+nome = input("Come ti chiami? ")
+print(f"Ciao {nome}, benvenuto nel mondo di Python!")
+
+# Aggiungi a questo script la possibilita di chiedere all'utente la sua eta
+eta_utente = int(input("Digita la tua eta:\n"))
+
+#Calcolare l'anno di nascita approssimativo (anno corrente - eta)
+anno_corrente = int(input("Digita l'anno corrente"))
+anno_nascita = anno_corrente - eta_utente
+
+
+#Stampare un messaggio personalizzato che includa il nome e l'anno di nascita
+print(f"Ciao {nome}, sono nato/a il {anno_nascita}")
+\end{lstlisting}
+
+\vspace{0.3cm}
+
+\subsubsection{Risoluzione Esercizio 2: \textit{\nameref{esercizioFond:2}}}
+
+\begin{lstlisting}
+1nome = "Paolo"                    # Inizia con un numero
+nome-cognome = "Mario Rossi"       # Usa il trattino
+class = "Principiante"             # Usa una parola riservata
+
+# Di seguito fornisci le tue correzioni
+nome = "Paolo"          
+nome_cognome = "Mario Rossi"
+classe = "Principiante"
+\end{lstlisting}
+
+\vspace{0.3cm}
+
+\subsubsection{Risoluzione Esercizio 3: \textit{\nameref{esercizioFond:3}}}
+
+\begin{lstlisting}
+# Dichiara le 2 variabili
+numero1 = 12
+numero2 = 56
+
+    # Esegui tutte le operazioni matematiche  (addizione, sottrazione, moltiplicazione, divisione, divisione intera, modulo, potenza)
+
+somma = numero1 + numero2
+sottrazione = numero1 - numero2
+divisione = numero1 / numero2
+moltiplicazione = numero1 * numero2
+divisione_intera = numero1 // numero2 
+modulo = numero1 % numero2
+potenza = numero1**numero2
+
+
+# Stampiamo i risultati 
+print(somma, " somma")                              # Output 68
+print(sottrazione, " sottrazione")                  # Output -44
+print(divisione, " divisione")                      # Output 0.21428571428571427
+print(moltiplicazione, " moltiplicazione")          # Output 672
+print(divisione_intera, " divisione con intero")    # Output 0
+print(modulo, " resto della divisione")             # Output 12
+print(potenza, " potenza di numero1 alla numero2")  # Output 2.71 10^60
+\end{lstlisting}
+
+
+\vspace{0.3cm}
+
+\subsubsection{Risoluzione Esercizio 4: \textit{\nameref{esercizioFond:4}}}
+
+\begin{lstlisting}
+a = 5
+b = 10
+c = 15
+risultato = (a < b) and (b <= c) or not (a == c)
+print(risultato)
+
+# Spiega perche il risultato del print e' True
+
+"""
+Per comprendere perche il risultato dell'espressione e True, dobbiamo analizzarla passo per passo seguendo l'ordine di valutazione degli operatori in Python.
+Prima valutiamo tutte le espressioni di confronto:
+(a < b) significa (5 < 10), che e True
+(b <= c) significa (10 <= 15), che e True
+(a == c) significa (5 == 15), che e False
+Poi applichiamo l'operatore not:
+not (a == c) diventa not False, che e True
+A questo punto la nostra espressione equivale a:
+True and True or True
+Ora applichiamo l'operatore and, che ha precedenza rispetto a or:
+True and True risulta in True
+Infine, applichiamo l'operatore or:
+True or True risulta in True
+In questo caso specifico, sia la parte a sinistra dell'operatore or ((a < b) and (b <= c)) sia la parte a destra (not (a == c)) sono entrambe True. Di conseguenza, l'intero risultato e True.
+E interessante notare che anche se la parte sinistra fosse False, il risultato complessivo sarebbe comunque True perche la parte destra e True e l'operatore or restituisce True se almeno uno dei suoi operandi e True.
+
+"""
+
+
+\end{lstlisting}
+
+
+
+\vspace{0.3cm}
+
+\subsubsection{Risoluzione Esercizio 5: \textit{\nameref{esercizioFond:5}}}
+
+\begin{lstlisting}
+# Chiediamo all'utente il primo numero
+primo_numero = int(input("Digita un numero intero\n"))
+# Chiediamo il secondo numero
+secondo_numero = int(input("Digita un secondo numero intero\n"))
+
+# Esegui le operazioni matematiche
+somma = primo_numero + secondo_numero
+divisione = primo_numero / secondo_numero
+moltiplicazione = primo_numero * secondo_numero
+
+# Stampa i risultati delle operazioni
+print(f"Somma: {somma}")                        # Output 16
+print(f"Divisione: {divisione}")                # Output 3
+print(f"Moltiplicazione: {moltiplicazione}")    # Output 48
+
+
+# Avremmo pututo usare il modulo float al posto di int per avere numeri decimali
+
+
+\end{lstlisting}
+
+
+
+\vspace{0.3cm}
+
+\subsubsection{Risoluzione Esercizio 6: \textit{\nameref{esercizioFond:6}}}
+
+\begin{lstlisting}
+
+# Esempio 1
+x = "hello"
+y = x
+x = "world"
+print(y)  # Cosa verra stampato?
+
+# Esempio 2
+lista_a = [1, 2, 3]
+lista_b = lista_a
+lista_a[0] = 99
+print(lista_b)  # Cosa verra stampato?
+
+"""
+
+Analisi passo per passo
+
+Creazione della prima variabile:
+x = "hello"
+In questo passaggio, Python crea un oggetto stringa con valore "hello" in memoria e assegna alla variabile x un riferimento a quest'oggetto. Le stringhe in Python sono tipi immutabili, quindi una volta creato l'oggetto "hello", non potra essere modificato.
+Creazione della seconda variabile:
+y = x
+Qui, Python non crea un nuovo oggetto stringa. Invece, fa puntare la variabile y allo stesso oggetto a cui punta x. Quindi ora sia x che y fanno riferimento allo stesso oggetto stringa "hello" in memoria.
+Riassegnazione della prima variabile:
+x = "world"
+Poiche le stringhe sono immutabili, Python non puo modificare l'oggetto "hello" esistente. Invece, crea un nuovo oggetto stringa con valore "world" e fa puntare x a questo nuovo oggetto. Importante: la variabile y continua a puntare all'oggetto originale "hello".
+Stampa del valore:
+print(y)
+Quando stampiamo y, otteniamo il valore dell'oggetto a cui y fa riferimento, che e ancora "hello".
+
+Risultato
+La risposta alla domanda "Cosa verra stampato?" e: hello
+Spiegazione del comportamento
+Questo esempio illustra perfettamente il comportamento dei tipi immutabili in Python:
+
+Le stringhe sono tipi immutabili, quindi non possono essere modificate dopo la creazione.
+Quando assegniamo un valore a una variabile (x = "hello"), creiamo un riferimento a un oggetto.
+Quando copiamo una variabile in un'altra (y = x), entrambe le variabili puntano allo stesso oggetto.
+Quando riassegniamo un nuovo valore a una variabile (x = "world"), non modifichiamo l'oggetto originale ma creiamo un nuovo oggetto e facciamo puntare la variabile al nuovo oggetto.
+La variabile che non e stata riassegnata (y) continua a puntare all'oggetto originale.
+
+Questo comportamento e diverso da quello dei tipi mutabili (come liste o dizionari), dove la modifica di un oggetto attraverso una variabile si rifletterebbe su tutte le variabili che puntano a quell'oggetto.
+
+
+
+
+
+--------- Rappresentazione Grafica della memoria ---------
+
+
+                Dopo x = "hello":
+                Variabili       Memoria
+                ---------       -------
+                    x    ---->  "hello"
+
+
+                Dopo y = x:
+                Variabili       Memoria
+                ---------       -------
+                    x    ---->  "hello"
+                    y    ----/
+
+
+                Dopo x = "world":
+                Variabili       Memoria
+                ---------       -------
+                    x    ---->  "world"
+                    y    ---->  "hello
+                    
+                    
+                    
+"""
+
+\end{lstlisting}

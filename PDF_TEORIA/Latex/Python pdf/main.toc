@@ -1,0 +1,148 @@
+\babel@toc {italian}{}\relax 
+\babel@toc {italian}{}\relax 
+\contentsline {section}{\numberline {1}Introduzione a Python}{5}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Caratteristiche Principali}{5}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Installazione}{5}{subsection.1.2}%
+\contentsline {subsubsection}{\numberline {1.2.1}Scelta della versione}{5}{subsubsection.1.2.1}%
+\contentsline {subsubsection}{\numberline {1.2.2}Download e installazione}{5}{subsubsection.1.2.2}%
+\contentsline {subsubsection}{\numberline {1.2.3}Verifica dell'installazione}{6}{subsubsection.1.2.3}%
+\contentsline {subsubsection}{\numberline {1.2.4}Gestione dei pacchetti con pip}{6}{subsubsection.1.2.4}%
+\contentsline {subsubsection}{\numberline {1.2.5}Ambienti virtuali}{6}{subsubsection.1.2.5}%
+\contentsline {subsubsection}{\numberline {1.2.6}Opzioni alternative}{6}{subsubsection.1.2.6}%
+\contentsline {subsection}{\numberline {1.3}Il tuo primo programma Python}{6}{subsection.1.3}%
+\contentsline {section}{\numberline {2}Variabili e Tipi di Dati}{8}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Dichiarazione e Assegnazione delle Variabili}{8}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Regole e best practice per denominare le variabili}{8}{subsection.2.2}%
+\contentsline {section}{\numberline {3}Metodi principali per i tipi di dati Python}{10}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Operatori}{12}{subsection.3.1}%
+\contentsline {subsubsection}{\numberline {3.1.1}Operatori aritmetici}{12}{subsubsection.3.1.1}%
+\contentsline {subsubsection}{\numberline {3.1.2}Operatori di confronto}{12}{subsubsection.3.1.2}%
+\contentsline {subsubsection}{\numberline {3.1.3}Operatori logici}{12}{subsubsection.3.1.3}%
+\contentsline {subsection}{\numberline {3.2}Input e Output}{13}{subsection.3.2}%
+\contentsline {section}{\numberline {4}Approfondimento delle Variabili}{14}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Il modello di riferimento in Python}{14}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Assegnazione di variabili}{14}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Tipi immutabili vs mutabili}{14}{subsection.4.3}%
+\contentsline {subsubsection}{\numberline {4.3.1}Comportamento con tipi immutabili}{16}{subsubsection.4.3.1}%
+\contentsline {subsubsection}{\numberline {4.3.2}Comportamento con tipi mutabili}{16}{subsubsection.4.3.2}%
+\contentsline {subsection}{\numberline {4.4}Verifica dell'identità degli oggetti}{17}{subsection.4.4}%
+\contentsline {subsection}{\numberline {4.5}Esercizio pratico: tracciare le variabili}{17}{subsection.4.5}%
+\contentsline {subsection}{\numberline {4.6}Esercizi Riassuntivi}{20}{subsection.4.6}%
+\contentsline {subsubsection}{\numberline {4.6.1}Esercizio 1: Implementazione Input ed Output}{20}{subsubsection.4.6.1}%
+\contentsline {subsubsection}{\numberline {4.6.2}Esercizio 2: Identificazione degli errori}{20}{subsubsection.4.6.2}%
+\contentsline {subsubsection}{\numberline {4.6.3}Esercizio 3: Operazioni Matematiche}{20}{subsubsection.4.6.3}%
+\contentsline {subsubsection}{\numberline {4.6.4}Esercizio 4: Operatori logici}{21}{subsubsection.4.6.4}%
+\contentsline {subsubsection}{\numberline {4.6.5}Esercizio 5: MiniCalcolatrice}{21}{subsubsection.4.6.5}%
+\contentsline {subsubsection}{\numberline {4.6.6}Esercizio 6: Mutabilità e Immutabilità}{22}{subsubsection.4.6.6}%
+\contentsline {subsection}{\numberline {4.7}Risoluzione Esercizi sui Fondamentali}{22}{subsection.4.7}%
+\contentsline {subsubsection}{\numberline {4.7.1}Risoluzione Esercizio 1: \textit {\nameref {esercizioFond:1}}}{22}{subsubsection.4.7.1}%
+\contentsline {subsubsection}{\numberline {4.7.2}Risoluzione Esercizio 2: \textit {\nameref {esercizioFond:2}}}{23}{subsubsection.4.7.2}%
+\contentsline {subsubsection}{\numberline {4.7.3}Risoluzione Esercizio 3: \textit {\nameref {esercizioFond:3}}}{23}{subsubsection.4.7.3}%
+\contentsline {subsubsection}{\numberline {4.7.4}Risoluzione Esercizio 4: \textit {\nameref {esercizioFond:4}}}{23}{subsubsection.4.7.4}%
+\contentsline {subsubsection}{\numberline {4.7.5}Risoluzione Esercizio 5: \textit {\nameref {esercizioFond:5}}}{24}{subsubsection.4.7.5}%
+\contentsline {subsubsection}{\numberline {4.7.6}Risoluzione Esercizio 6: \textit {\nameref {esercizioFond:6}}}{24}{subsubsection.4.7.6}%
+\contentsline {section}{\numberline {5}Presentazione Liste, Tuple, Dizionari, Set}{27}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Liste}{27}{subsection.5.1}%
+\contentsline {subsubsection}{\numberline {5.1.1}Definizione e Caratteristiche Principali}{27}{subsubsection.5.1.1}%
+\contentsline {subsection}{\numberline {5.2}L'Indicizzazione delle Liste in Python}{29}{subsection.5.2}%
+\contentsline {subsubsection}{\numberline {5.2.1}Un modello matematico per comprendere gli indici}{29}{subsubsection.5.2.1}%
+\contentsline {paragraph}{Il Modello dell'Anello Chiuso}{29}{paragraph*.2}%
+\contentsline {paragraph}{Rappresentazione Visiva}{30}{paragraph*.3}%
+\contentsline {paragraph}{La Formula Matematica}{30}{paragraph*.4}%
+\contentsline {subsubsection}{\numberline {5.2.2}Vantaggi dell'indicizzazione bidirezionale}{30}{subsubsection.5.2.2}%
+\contentsline {subsubsection}{\numberline {5.2.3}Esempi pratici}{30}{subsubsection.5.2.3}%
+\contentsline {subsubsection}{\numberline {5.2.4}Il concetto di insieme ciclico chiuso}{31}{subsubsection.5.2.4}%
+\contentsline {subsubsection}{\numberline {5.2.5}Conclusione}{31}{subsubsection.5.2.5}%
+\contentsline {subsubsection}{\numberline {5.2.6}Sintassi di Base}{32}{subsubsection.5.2.6}%
+\contentsline {paragraph}{Creazione di Liste}{32}{paragraph*.5}%
+\contentsline {paragraph}{Best Practice per Denominare le Liste}{32}{paragraph*.6}%
+\contentsline {subsubsection}{\numberline {5.2.7}Accesso agli Elementi}{33}{subsubsection.5.2.7}%
+\contentsline {subsubsection}{\numberline {5.2.8}Modifica degli Elementi}{33}{subsubsection.5.2.8}%
+\contentsline {subsubsection}{\numberline {5.2.9}Slicing di Liste}{34}{subsubsection.5.2.9}%
+\contentsline {subsubsection}{\numberline {5.2.10}Operazioni e Metodi Base}{35}{subsubsection.5.2.10}%
+\contentsline {subsubsection}{\numberline {5.2.11}Metodi per Aggiungere Elementi}{35}{subsubsection.5.2.11}%
+\contentsline {subsubsection}{\numberline {5.2.12}Metodi per Rimuovere Elementi}{35}{subsubsection.5.2.12}%
+\contentsline {subsubsection}{\numberline {5.2.13}Gestione degli Errori}{36}{subsubsection.5.2.13}%
+\contentsline {subsubsection}{\numberline {5.2.14}Metodi per Ottenere Informazioni}{36}{subsubsection.5.2.14}%
+\contentsline {subsubsection}{\numberline {5.2.15}Esempi di index() e count()}{37}{subsubsection.5.2.15}%
+\contentsline {subsubsection}{\numberline {5.2.16}Metodi per Ordinamento e Inversione}{37}{subsubsection.5.2.16}%
+\contentsline {subsection}{\numberline {5.3}Comportamento in Memoria delle Liste}{39}{subsection.5.3}%
+\contentsline {subsubsection}{\numberline {5.3.1}Variabili come Riferimenti}{39}{subsubsection.5.3.1}%
+\contentsline {subsubsection}{\numberline {5.3.2}Assegnazione e Riferimenti Multipli}{39}{subsubsection.5.3.2}%
+\contentsline {subsubsection}{\numberline {5.3.3}Creazione di Copie Indipendenti}{40}{subsubsection.5.3.3}%
+\contentsline {paragraph}{Metodi per la Creazione di Copie Indipendenti}{41}{paragraph*.7}%
+\contentsline {paragraph}{Il Problema delle Liste Annidate}{47}{paragraph*.8}%
+\contentsline {paragraph}{Il Problema della Copia profonda in Dettaglio}{47}{paragraph*.9}%
+\contentsline {subparagraph}{Comprensione del Problema}{47}{subparagraph*.10}%
+\contentsline {paragraph}{Copie Profonde}{49}{paragraph*.13}%
+\contentsline {subsubsection}{\numberline {5.3.4}Confronto tra Liste: `==` vs `is`}{49}{subsubsection.5.3.4}%
+\contentsline {subsubsection}{\numberline {5.3.5}Rappresentazione Visiva della Memoria}{49}{subsubsection.5.3.5}%
+\contentsline {paragraph}{Errore Comune: Liste Annidate Moltiplicate}{50}{paragraph*.14}%
+\contentsline {paragraph}{Soluzione Corretta}{50}{paragraph*.15}%
+\contentsline {paragraph}{Implicazioni Pratiche}{50}{paragraph*.16}%
+\contentsline {subsubsection}{\numberline {5.3.6}Implicazioni Pratiche}{51}{subsubsection.5.3.6}%
+\contentsline {subsection}{\numberline {5.4}Esercizi Riassuntivi}{52}{subsection.5.4}%
+\contentsline {subsubsection}{\numberline {5.4.1}Esercizio 1: Concetti Base e Indicizzazione}{52}{subsubsection.5.4.1}%
+\contentsline {subsubsection}{\numberline {5.4.2}Esercizio 2: Operazioni Base sulle Liste}{52}{subsubsection.5.4.2}%
+\contentsline {subsubsection}{\numberline {5.4.3}Esercizio 3: Slicing delle Liste}{52}{subsubsection.5.4.3}%
+\contentsline {subsubsection}{\numberline {5.4.4}Esercizio 4: Metodi delle Liste}{53}{subsubsection.5.4.4}%
+\contentsline {subsubsection}{\numberline {5.4.5}Esercizio 5: Comportamento in Memoria delle Liste}{53}{subsubsection.5.4.5}%
+\contentsline {subsubsection}{\numberline {5.4.6}Esercizio 6: Analisi di Codice e Risoluzione Problemi:}{54}{subsubsection.5.4.6}%
+\contentsline {subsection}{\numberline {5.5}Risoluzione Esercizi Sulle Liste}{54}{subsection.5.5}%
+\contentsline {subsubsection}{\numberline {5.5.1}Risoluzione Esercizio 1: \nameref {Esercizio1Liste}}{54}{subsubsection.5.5.1}%
+\contentsline {subsubsection}{\numberline {5.5.2}Risoluzioe Esercizio 2: \nameref {Esercizio2Liste}}{55}{subsubsection.5.5.2}%
+\contentsline {subsubsection}{\numberline {5.5.3}Risoluzione Esercizio 3: \nameref {Esercizio3Liste}}{56}{subsubsection.5.5.3}%
+\contentsline {subsubsection}{\numberline {5.5.4}Risoluzione Esercizio 4: \nameref {Esercizio4Liste}}{56}{subsubsection.5.5.4}%
+\contentsline {subsubsection}{\numberline {5.5.5}Risoluzione Esercizio 5: \nameref {Esercizio5Liste}}{57}{subsubsection.5.5.5}%
+\contentsline {subsubsection}{\numberline {5.5.6}Risoluzione Esercizio 6: \nameref {Esercizio6Liste}}{58}{subsubsection.5.5.6}%
+\contentsline {subsection}{\numberline {5.6}Tuple}{60}{subsection.5.6}%
+\contentsline {subsubsection}{\numberline {5.6.1}Caratteristiche Principali delle Tuple}{60}{subsubsection.5.6.1}%
+\contentsline {subsubsection}{\numberline {5.6.2}Sintassi Base delle Tuple}{60}{subsubsection.5.6.2}%
+\contentsline {subsubsection}{\numberline {5.6.3}Operazioni comuni con le Tuple}{61}{subsubsection.5.6.3}%
+\contentsline {subsubsection}{\numberline {5.6.4}{Acccesso agli elementi (indicizzazione):}}{61}{subsubsection.5.6.4}%
+\contentsline {subsubsection}{\numberline {5.6.5}{Slicing:}}{61}{subsubsection.5.6.5}%
+\contentsline {subsubsection}{\numberline {5.6.6}{Concatenazione delle Tuple}}{62}{subsubsection.5.6.6}%
+\contentsline {paragraph}{Aspetti Teorici:}{62}{paragraph*.17}%
+\contentsline {subsubsection}{\numberline {5.6.7}{Concatenazione vs altri metodi di combinazione}}{63}{subsubsection.5.6.7}%
+\contentsline {subsubsection}{\numberline {5.6.8}{Differenza tra Tuple e Liste:}}{63}{subsubsection.5.6.8}%
+\contentsline {subsubsection}{\numberline {5.6.9}Altri metodi:}{65}{subsubsection.5.6.9}%
+\contentsline {subsection}{\numberline {5.7}Tuple e la Gestione della Memoria}{66}{subsection.5.7}%
+\contentsline {subsubsection}{\numberline {5.7.1}Allocazione della Memoria}{66}{subsubsection.5.7.1}%
+\contentsline {subsubsection}{\numberline {5.7.2}Struttura Interna}{66}{subsubsection.5.7.2}%
+\contentsline {subsubsection}{\numberline {5.7.3}Immutabilità e Ottimizzazioni di Memoria}{66}{subsubsection.5.7.3}%
+\contentsline {subsubsection}{\numberline {5.7.4}Tuple come Elementi Hashable}{67}{subsubsection.5.7.4}%
+\contentsline {subsubsection}{\numberline {5.7.5}Tuple di Tuple e strutture Annidate}{67}{subsubsection.5.7.5}%
+\contentsline {subsubsection}{\numberline {5.7.6}Garbage Collection}{67}{subsubsection.5.7.6}%
+\contentsline {subsubsection}{\numberline {5.7.7}Ciclo di Vita di una Tupla in Memoria}{67}{subsubsection.5.7.7}%
+\contentsline {subsubsection}{\numberline {5.7.8}Rappresentazione Grafica}{68}{subsubsection.5.7.8}%
+\contentsline {subsection}{\numberline {5.8}Esercizi Riassuntivi}{72}{subsection.5.8}%
+\contentsline {subsubsection}{\numberline {5.8.1}Esercizio 1: Creazione e sintassi Base delle Tuple}{72}{subsubsection.5.8.1}%
+\contentsline {subsubsection}{\numberline {5.8.2}Esercizio 2: Accesso agli Elementi (indicizzazione)}{72}{subsubsection.5.8.2}%
+\contentsline {subsubsection}{\numberline {5.8.3}Esercizio 3: Sclicing delle Tuple}{72}{subsubsection.5.8.3}%
+\contentsline {subsubsection}{\numberline {5.8.4}Esercizio 4: Metodi per le Tuple}{72}{subsubsection.5.8.4}%
+\contentsline {subsubsection}{\numberline {5.8.5}Esercizio 5: Concatenazione delle Tuple}{73}{subsubsection.5.8.5}%
+\contentsline {subsubsection}{\numberline {5.8.6}Esercizio 6: Immutabilità delle Tuple}{73}{subsubsection.5.8.6}%
+\contentsline {subsubsection}{\numberline {5.8.7}Esercizio 7: Tuple Annidate}{73}{subsubsection.5.8.7}%
+\contentsline {subsubsection}{\numberline {5.8.8}Esercizio 8: Operazioni di Confronto}{73}{subsubsection.5.8.8}%
+\contentsline {subsubsection}{\numberline {5.8.9}Esercizzio 9: Applicazione Pratica}{74}{subsubsection.5.8.9}%
+\contentsline {subsection}{\numberline {5.9}Risoluzione Esercizi sulle Tuple}{74}{subsection.5.9}%
+\contentsline {subsubsection}{\numberline {5.9.1}Risoluzione: \nameref {Esercizio1Tuple}}{74}{subsubsection.5.9.1}%
+\contentsline {subsubsection}{\numberline {5.9.2}Risoluzione: \nameref {Esercizio2Tuple}}{74}{subsubsection.5.9.2}%
+\contentsline {subsubsection}{\numberline {5.9.3}Risoluzione: \nameref {Esercizio3Tuple}}{75}{subsubsection.5.9.3}%
+\contentsline {subsubsection}{\numberline {5.9.4}Risoluzione: \nameref {Eserciozio4Tuple}}{75}{subsubsection.5.9.4}%
+\contentsline {subsubsection}{\numberline {5.9.5}Risoluzione: \nameref {Esercizio5ConcatenazioneTuple}}{76}{subsubsection.5.9.5}%
+\contentsline {subsubsection}{\numberline {5.9.6}Risoluzione: \nameref {Esercizio6ImmutabilitàTuple}}{76}{subsubsection.5.9.6}%
+\contentsline {subsubsection}{\numberline {5.9.7}Risoluzione: \nameref {EsercizioTupleAnnidate}}{77}{subsubsection.5.9.7}%
+\contentsline {subsubsection}{\numberline {5.9.8}Risoluzione: \nameref {Esercizio8ConfrontoTuple}}{77}{subsubsection.5.9.8}%
+\contentsline {subsubsection}{\numberline {5.9.9}Risoluzione: \nameref {Esercizio9Tuple}}{78}{subsubsection.5.9.9}%
+\contentsline {subsection}{\numberline {5.10}Dizionari}{79}{subsection.5.10}%
+\contentsline {subsubsection}{\numberline {5.10.1}Chiavi - Valori}{79}{subsubsection.5.10.1}%
+\contentsline {subsubsection}{\numberline {5.10.2}Caratteristiche delle Chiavi}{79}{subsubsection.5.10.2}%
+\contentsline {subsection}{\numberline {5.11}Set}{84}{subsection.5.11}%
+\contentsline {subsection}{\numberline {5.12}Caretteristiche Fondamentali}{84}{subsection.5.12}%
+\contentsline {subsubsection}{\numberline {5.12.1}Teoria degli insiemi}{84}{subsubsection.5.12.1}%
+\contentsline {subsubsection}{\numberline {5.12.2}Uguaglianza e Principio di Estensionalità}{84}{subsubsection.5.12.2}%
+\contentsline {subsubsection}{\numberline {5.12.3}Operazioni tra Insiemi}{84}{subsubsection.5.12.3}%
+\contentsline {paragraph}{Unione tra Insiemi}{84}{paragraph*.20}%
+\contentsline {paragraph}{Intersezione tra Insiemi}{86}{paragraph*.21}%
+\contentsline {paragraph}{Differenza tra Insiemi}{88}{paragraph*.22}%

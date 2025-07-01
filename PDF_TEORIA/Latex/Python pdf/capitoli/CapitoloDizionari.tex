@@ -1,0 +1,315 @@
+\subsection{Dizionari}\label{IncipitDizionari}
+
+Fino ad adesso abbiamo affrontato come strutturare i dati tramite le liste e le tuple, in Python esiste anche un ulteriore metodo per strutturare i dati, i \textit{\textbf{dizionari.}}
+
+A differenza delle liste e delle tuple, i \textit{\textbf{dizionari}} offrono una metodologia di collezione dei dati in più, quella di abbinare ogni valore a una chiave.
+
+Si dichiarano tramite parentesi graffe \textit{\textbf{{}}} e come le liste possono contenere elementi di tipo diversi: \textit{Booleani, stringhe, interi, float.} Come per le liste esiste il metodo built-in di Python per dichiarare un dizionario: dict()
+
+\vspace{0.5cm}
+\textbf{Metodi Dichiarativi per Dizionari:}
+\begin{lstlisting}
+#Dichiarazione Dizionario tramite parentesi {}
+dizionario = {
+    "chiave1": valore1,
+    "chiave2": valore2,
+    "chiave3": valore3
+}
+
+#Dichiarazione tramite metodo dict()
+dizionario_Dict = dict("chiave"=valore1, "chiave2"=valore2, "chiave3"=valore3)
+\end{lstlisting}
+\vspace{0.5cm}
+Per quanto riguarda il metodo \textit{\textbf{dict(),}} bisogna approfondire alcuni aspetti, in quanto questo metodo ha alcune restrizioni, rispetto alla dichiarazione canonica.
+
+\vspace{0.5cm}
+\begin{lstlisting}
+"""
+Con {} puoi usare chiavi di qualsiasi tipo (anche numeri o tuple), mentre con dict() le chiavi devono essere stringhe valide come nomi di variabili (quindi niente spazi, accenti, ecc.).
+
+Se vuoi creare un dizionario da una lista di coppie chiave-valore, dict() può essere comodo:
+"""
+
+coppie = [("nome", "Luca"), ("età", 30), ("città", "Milano")]
+persona = dict(coppie)
+
+\end{lstlisting}
+
+
+
+\subsubsection{Chiavi - Valori}\label{ChiaveValoreDizionari}
+
+Questa capacità di associare un valore a una determinata chiave fa sì che si possa costruire una mappa associativa, dove ogni elemento è costituito da una coppia chiave - valore, permettendo così un accesso rapido e efficiente ai dati, grazie alla peculiarità delle caratteristiche delle chiavi.
+
+\subsubsection{Caratteristiche delle Chiavi}\label{CaratteristicheChiaviDict}
+Come già accennato, la rapidità e l'efficienza che offrono i \textit{\textbf{dizionari}} sono date principalmente dalle caratteristiche che determinano le chiavi.
+
+
+\begin{lstlisting}
+#Esempio Dizionario
+dizionario = {
+    "chiave1":valore1,
+    "chiave2":valore2,
+    "chiave3":valore3
+}
+\end{lstlisting}
+
+
+\vspace{0.5cm}
+\begin{tcolorbox}[colback=blue!5!white,colframe=blue!75!black,title=Caratteristiche principali delle Chiavi]
+\begin{itemize}
+    \item \textbf{Hashabilità}: Devono avere un valore hash costante.
+    
+    \item \textbf{Immutabilità}: Non possono essere modificate dopo la creazione.
+    
+    \item \textbf{Unicità}: Ogni chiave appare una sola volta nel dizionario.
+    
+    \item \textbf{Confrontabilità}: Devono supportare l'operatore \textit{\textbf{==}} di uguaglianza.
+    
+    \item \textbf{Tipologia Libera}: Possono essere di qualsiasi tipo purché hashable.
+    
+\end{itemize}
+\end{tcolorbox}
+
+
+Vediamo, tramite esempi pratici, a cosa fanno riferimento queste caratteristiche.
+\vspace{0.5cm}
+
+\textbf{Hashabilità}
+\begin{lstlisting}
+# Le chiavi devono essere oggetti hashable
+# Devono implementare il metodo __hash__()
+# Il valore hash deve rimanere costante durante la vita dell'oggetto
+
+print(f"Hash di 'ciao': {hash('ciao')}")    # Output -5659573120285894662
+print(f"Hash di 42: {hash(42)}")            # Output 42
+print(f"Hash di (1,2,3): {hash((1,2,3))}")  # Output 529344067295497451
+\end{lstlisting}
+
+\vspace{0.5cm}
+\textbf{Immutabilità}
+\begin{lstlisting}
+# Le chiavi devono essere immutabili dopo la crezione
+# Non possono essere modificate in-place
+# Garantiscono che il valore hash rimanga stabile
+
+dizionario = {}
+chiave_stringa = "prodotto"
+dizionario[chiave_stringa] = "Laptop"
+# la chiave stringa non puo' essere modificata in-place
+print(dizionario)      # Output {'prodotto': 'Laptop'}
+\end{lstlisting}
+
+\vspace{0.5cm}
+\textbf{Unicità}
+\begin{lstlisting}
+# Ogni chiave puo' apparire una sola volta nel dizionario
+# Se si inserisce una chiave esistente , il valore precedente viene sovrascritto
+# L'unicita' è verificata tramite l'operatore ==
+
+prodotti = {}
+
+# Prima inserzione
+prodotti["laptop"] = {"prezzo":800, "quantita":4}
+print(f"Dopo prima inserzione: {prodotti}")
+
+# Output Dopo prima inserzione: {'laptop': {'prezzo': 800, 'quantita': 4}}
+
+# Seconda inserzione con stessa chiave - sovrascrive!
+prodotti["laptop"] = {"prezzo": 750, "quantità": 3}
+print(f"Dopo sovrascrittura: {prodotti}")
+# Output Dopo sovrascrittura: {'laptop': {'prezzo': 750, 'quantità': 3}}
+
+
+# Verifica che abbiamo sempre una sola chiave
+print(f"Numero di chiavi: {len(prodotti)}")  
+# Output Numero di chiavi: 1
+
+# Anche con tipi numerici
+numeri = {}
+numeri[1] = "uno"
+numeri[1.0] = "uno punto zero"  
+# Output 1 == 1.0 in Python!
+
+print(f"Chiavi numeriche: {numeri}")  
+# Output {1: 'uno punto zero'}
+print(f"1 == 1.0? {1 == 1.0}")  
+# Output True
+\end{lstlisting}
+
+
+\vspace{0.5cm}
+\textbf{Confrontabilità}
+\begin{lstlisting}
+# Le chiavi devono implementare il metodo __eq__()
+# Permette di determinare se due chiavi sono identiche
+# Usato per risolvere eventuali collisioni di hash
+
+# Esempio 1: Numeri equivalenti
+inventario = {}
+
+# Inserimento con chiave intera
+inventario[1] = "Un articolo"
+print(f"Dopo inserimento con 1: {inventario}")
+
+# Inserimento con chiave float equivalente
+inventario[1.0] = "Un articolo (aggiornato)"  # 1 == 1.0!
+print(f"Dopo inserimento con 1.0: {inventario}")
+print(f"Numero di chiavi: {len(inventario)}")  # Solo 1 chiave!
+
+# Verifica dell'uguaglianza
+print(f"1 == 1.0? {1 == 1.0}")  # True
+print(f"hash(1) == hash(1.0)? {hash(1) == hash(1.0)}")  # True
+
+# Esempio 2: Tuple con contenuto identico
+coordinate = {}
+
+# Due tuple create separatamente ma con contenuto uguale
+punto_a = (3, 4)
+punto_b = (3, 4)
+
+coordinate[punto_a] = "Prima posizione"
+print(f"Dopo prima inserzione: {coordinate}")
+
+coordinate[punto_b] = "Seconda posizione"  # Sovrascrive!
+print(f"Dopo seconda inserzione: {coordinate}")
+
+# Verifica dell'uguaglianza
+print(f"punto_a == punto_b? {punto_a == punto_b}")  # True
+print(f"punto_a is punto_b? {punto_a is punto_b}")  # Può essere True o False
+print(f"hash(punto_a) == hash(punto_b)? {hash(punto_a) == hash(punto_b)}")  # True
+
+# Esempio 3: Stringhe con contenuto identico
+database = {}
+
+# Stringhe create in modi diversi ma con contenuto uguale
+chiave1 = "utente_001"
+chiave2 = "utente" + "_" + "001"
+chiave3 = f"utente_{1:03d}"
+
+database[chiave1] = "Mario Rossi"
+database[chiave2] = "Luigi Verdi"  # Sovrascrive Mario Rossi
+database[chiave3] = "Anna Bianchi"  # Sovrascrive Luigi Verdi
+
+print(f"Database finale: {database}")
+print(f"Numero di utenti: {len(database)}")  # Solo 1!
+
+# Verifica delle uguaglianze
+print(f"chiave1 == chiave2? {chiave1 == chiave2}")  # True
+print(f"chiave2 == chiave3? {chiave2 == chiave3}")  # True
+print(f"Tutte le chiavi: '{chiave1}', '{chiave2}', '{chiave3}'")
+
+# Esempio 4: Caso interessante con True/False e 1/0
+configurazione = {}
+
+# Bool e int equivalenti
+configurazione[True] = "Modalità attiva"
+configurazione[1] = "Valore uno"  # Sovrascrive True!
+
+configurazione[False] = "Modalità disattiva" 
+configurazione[0] = "Valore zero"  # Sovrascrive False!
+
+print(f"Configurazione: {configurazione}")
+print(f"True == 1? {True == 1}")    # True
+print(f"False == 0? {False == 0}")  # True
+\end{lstlisting}
+
+\vspace{0.5cm}
+
+\textbf{Tipologia libera}
+\begin{lstlisting}
+# Non esiste restrizione sul tipo di oggetto (basta che sia hashable)
+# Possono coesistere chiavi di tipi diversi nello stesso dizionario
+# Raccomandato mantenere coerenza per leggibilita'
+
+# Dizionario con chiavi di tipi diversi - tutti nello stesso dizionario!
+collezione_mista = {
+    # Stringa come chiave
+    "nome": "Mario Rossi",
+    
+    # Numero intero come chiave
+    42: "La risposta universale",
+    
+    # Numero decimale come chiave
+    3.14: "Pi greco approssimato",
+    
+    # Tupla come chiave
+    (1, 2, 3): "Coordinate tridimensionali",
+    
+    # Valore booleano come chiave
+    True: "Stato attivo",
+    
+    # None come chiave
+    None: "Valore indefinito"
+}
+
+# Accesso alle diverse chiavi
+print("Esempi di accesso con chiavi di tipi diversi:")
+print(f"Nome: {collezione_mista['nome']}")
+print(f"Numero: {collezione_mista[42]}")
+print(f"Pi greco: {collezione_mista[3.14]}")
+print(f"Coordinate: {collezione_mista[(1, 2, 3)]}")
+print(f"Stato: {collezione_mista[True]}")
+print(f"Indefinito: {collezione_mista[None]}")
+
+# Esempio pratico: sistema di configurazione
+configurazione_sistema = {
+    # Chiavi stringa per impostazioni testuali
+    "host": "localhost",
+    "database": "app_principale",
+    
+    # Chiavi numeriche per valori numerici
+    8080: "Porta del server",
+    443: "Porta HTTPS",
+    
+    # Chiavi booleane per flag
+    True: "Modalità di produzione attiva",
+    False: "Modalità di debug disattiva",
+    
+    # Tupla per configurazioni composite
+    ("cache", "redis"): "127.0.0.1:6379"
+}
+
+print("\nConfigurazione sistema:")
+print(f"Host: {configurazione_sistema['host']}")
+print(f"Porta HTTP: {configurazione_sistema[8080]}")
+print(f"Produzione: {configurazione_sistema[True]}")
+print(f"Cache Redis: {configurazione_sistema[('cache', 'redis')]}")
+
+# Attenzione: comportamenti speciali con tipi misti
+problemi_comuni = {}
+
+# True e 1 sono considerati la stessa chiave!
+problemi_comuni[True] = "Valore booleano"
+problemi_comuni[1] = "Valore intero"  # Sovrascrive True!
+print(f"\nProblema con True/1: {problemi_comuni}")  # Solo una chiave
+
+# False e 0 sono considerati la stessa chiave!
+problemi_comuni[False] = "Valore booleano falso"
+problemi_comuni[0] = "Valore zero"  # Sovrascrive False!
+print(f"Problema con False/0: {problemi_comuni}")  # Solo due chiavi totali
+
+# Esempio di buona pratica: mantenere coerenza nei tipi
+# BENE - chiavi tutte stringhe
+anagrafica_coerente = {
+    "nome": "Luigi",
+    "cognome": "Bianchi", 
+    "età": "25",  # Anche l'età come stringa per coerenza
+    "città": "Roma"
+}
+
+# MENO LEGGIBILE - tipi misti senza motivo
+anagrafica_confusa = {
+    "nome": "Luigi",
+    42: "Bianchi",  # Perche' 42 per il cognome?
+    (1, 2): "25",   # Perche' tupla per l'età?
+    True: "Roma"    # Perche' True per la città?
+}
+
+print(f"\nAnagrafica coerente: {anagrafica_coerente}")
+print(f"Anagrafica confusa: {anagrafica_confusa}")
+
+# Verifica della dimensione del dizionario
+print(f"\nNumero di elementi in collezione_mista: {len(collezione_mista)}")
+print(f"Numero di elementi in configurazione_sistema: {len(configurazione_sistema)}")
+\end{lstlisting}

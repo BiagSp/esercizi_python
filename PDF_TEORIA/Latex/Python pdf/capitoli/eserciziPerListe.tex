@@ -1,0 +1,527 @@
+\clearpage
+
+\subsection{Esercizi Riassuntivi}
+Come per la sezione sulle \textit{\hyperref[EserciziFondamenti]{variabili}}, anche qui andiamo a svolgere alcuni esercizi per familiarizzare con i concetti affrontati, anche qui a fine sezione si troveranno gli esercizi svolti con le soluzioni spiegate passo passo.
+
+\subsubsection{Esercizio 1: Concetti Base e Indicizzazione}\label{Esercizio1Liste}
+In questo esercizio andremo ad approfondire il concetto di indicizzazione, vedi capitolo \nameref{IndicizzazioneListe}
+    \newline
+\textbf{Traccia gli Indici:} Data la lista \textit{colori = ["rosso", "verde", "blu", "giallo", "viola"]}
+
+-   Scrivi l'indice positivo e negativo per accedere a ciascun elemento
+
+-   Qual è il valore di colori[1]? E di colori[-2]
+
+-   Se volessi accedere a \textit{"verde"} usando un indice negativo, quale sarebbe?
+
+\vspace{0,5cm}
+\begin{lstlisting}
+#Dichiariamo la lista colori
+colori = ["rosso", "verde", "blu", "giallo", "viola"]
+
+#Inserisci gli indici positivi e negativi di tutti gli elementi della lista
+
+#Valore di colori[1]
+
+#Valore di colori[-2]
+
+#A quale indice corrisponde "verde" e quale sarebbe il suo corrispettivo indice negativo?
+
+\end{lstlisting}
+
+\subsubsection{Esercizio 2: Operazioni Base sulle Liste}\label{Esercizio2Liste}
+\title{\textbf{Modifica gli Elementi}}
+inizializziamo una lista punteggi.
+
+\begin{lstlisting}
+punteggi = [85, 92, 78, 90, 88]
+# - Sostituisci il terzo elemento con 95
+
+# - Aggiungi 100 alla fine della lista
+
+# - Inserisci 82 nella seconda posizione
+
+\end{lstlisting}
+
+\title{\textbf{Concatenazione e Ripetizione}}
+\begin{lstlisting}
+# Scrivi il risultato di queste operazioni:
+
+lista1 = [1, 2, 3]
+lista2 = [4, 5]
+risultato1 = lista1 + lista2
+risultato2 = lista1 * 3
+\end{lstlisting}
+
+Per questo esercizio, ripassare le sezioni:
+\begin{itemize}
+    \item \nameref{MetodiListe}
+    \item \nameref{MetodiListeRemove}
+\end{itemize}
+
+
+
+\subsubsection{Esercizio 3: Slicing delle Liste}\label{Esercizio3Liste}
+\title{\textbf{Estrazioni con Slicing}}
+
+\begin{lstlisting}
+# Data una lista
+lettere = ["a", "b", "c", "d", "e", "f", "g"]
+
+# - Estrarre i primi due elementi
+
+# - Estrai gli ultimi due elementi
+
+# - Estrai gli elementi dallaa posizione 2 alla 5 (inclusa)
+
+# - Estrai tutti gli elementi tranne il primo e l'ultimo
+\end{lstlisting}
+
+\title{\textbf{Slicing Avanzato}}
+\begin{lstlisting}
+# Prevedi il risultato di questo codice:
+
+sequenza = [10, 20, 30, 40, 50, 60, 70]
+parte1 = sequenza[1:5]
+parte2 = sequenza[::2]
+parte3 = sequenza[5:1:-1]
+\end{lstlisting}
+
+
+Per questo esercizio, ripassare le sezioni:
+\begin{itemize}
+    \item \nameref{SlicingListe}
+\end{itemize}
+
+\subsubsection{Esercizio 4: Metodi delle Liste}\label{Esercizio4Liste}
+\title{\textbf{Applicazione dei metodi base}}
+
+\begin{lstlisting}
+# Data una lista
+frutta = ["mela", "banana", "ciliegia"]
+
+# - Usa il metodo appropriato per aggiungere "arancia" alla fine
+    
+# - Usa il metodo corretto per trovare la posizione di "banana"
+
+# - Usa un metodo per contare quante volte appare "mela"
+
+# - Usa un metodo per rimuovere "ciliegia"
+
+\end{lstlisting}
+
+
+\title{\textbf{Ordinamento e Inversione:}}
+
+
+\begin{lstlisting}
+# Data una lista di numeri
+numeri = [42, 8, 16, 23, 4, 15]
+
+# - Ordina la lista in modo crescente
+
+# - Inverti l'ordine degli elementi
+
+# - Qual è la differenza tra usare il metodo sort() e la funzione sorted()
+\end{lstlisting}
+
+
+
+
+
+
+Per questo esercizio ripassare le sezioni:
+\begin{itemize}
+    \item \nameref{MetodiOrdinamentoInversioneListe}
+    \item \nameref{EsempiInputCountListe}
+    \item  \nameref{AccessoListe}
+    \item  \nameref{MetodiInfoListe}
+\end{itemize}
+
+
+\subsubsection{Esercizio 5: Comportamento in Memoria delle Liste}\label{Esercizio5Liste}
+\title{\textbf{Riferimenti e Copie}}
+
+
+\begin{lstlisting}
+# Analizza e predici l'Output
+
+a = [1, 2, 3]
+b = a
+b[0] = 10
+print(a)
+
+\end{lstlisting}
+
+
+\title{\textbf{Creazione di Copie Indipendenti:}}
+\begin{lstlisting}
+# Quali tra questi metodi creanno una copia indipendente?
+
+lista2 = lista1
+
+lista2 = lista1[:]
+
+lista2 = list(lista1)
+
+lista2 = lista1.copy()
+
+\end{lstlisting}
+
+
+\title{\textbf{Identità vs Uguaglianza:}}
+\begin{lstlisting}
+# Predici il risultato di questi confronti:
+
+lista1 = [1, 2, 3]
+lista2 = [1, 2, 3]
+lista3 = lista1
+
+print(lista1 == lista2)
+print(lista1 is lista2)
+print(lista1 is lista3)
+
+\end{lstlisting}
+
+
+
+Per questo esercizio ripassare le sezioni:
+\begin{itemize}
+    \item \nameref{ComportamentoInMemoriaListe}
+\end{itemize}
+
+\subsubsection{Esercizio 6: Analisi di Codice e Risoluzione Problemi:}\label{Esercizio6Liste}
+\title{\textbf{Trova l'errore}}
+
+
+\begin{lstlisting}
+# Indentifica e correggi l'errore in questo codice:
+
+colori = ["rosso", "verde", "blu"]
+colori[3] = "giallo"  # Aggiungi giallo alla lista
+print(colori[4])      # Stampa il quinto elemento
+
+\end{lstlisting}
+
+
+\title{\textbf{Tracciamento della Memoria:}}
+\begin{lstlisting}
+# Dissegna un diagramma di memoria che mostri lo stato delle varaibili dopo ogni istruzione
+
+lista1 = [10, 20]
+lista2 = lista1
+lista1.append(30)
+lista3 = lista1[:]
+lista3[0] = 99
+
+\end{lstlisting}
+
+
+\title{\textbf{Test di Comprensione}}
+\begin{lstlisting}
+# Cosa Stampa questo codice
+
+a = [1, 2, 3]
+b = [a, a]
+b[0][1] = 10
+print(b)
+print(a)
+
+\end{lstlisting}
+
+
+
+Per questo esercizio ripassare le sezioni:
+\begin{itemize}
+    \item \nameref{ComportamentoInMemoriaListe}
+\end{itemize}
+
+
+\subsection{Risoluzione Esercizi Sulle Liste}
+
+\subsubsection{Risoluzione Esercizio 1: \nameref{Esercizio1Liste}}
+
+\begin{lstlisting}
+# Data la lista colori = ["rosso", "verde", "blu", "giallo", "viola"]
+
+#Inserisci gli indici positivi e negativi di tutti gli elementi della lista
+    #Per risolvere questo quesito potremmo prima vedere quanto è lunga la lista
+    print(len(colori))
+    
+    #In questo modo conosceremo quanti elementi sono presenti nella lista e potremo numerarli in entrambi i versi
+
+    # Formula: indice_negativo = -lunghezza + indice_positivo
+    
+    # "rosso": indice positivo 0, indice negativo = -5 + 0 = -5
+    # "verde": indice positivo 1, indice negativo = -5 + 1 = -4
+    # "blu": indice positivo 2, indice negativo = -5 + 2 = -3
+    # "giallo": indice positivo 3, indice negativo = -5 + 3 = -2
+    # "viola": indice positivo 4, indice negativo = -5 + 4 = -1
+        
+#Valore di colori[1]
+    #Dopo aver numerato gli elementi della lista ora possiamo ricavare i valori all'indice richiesto
+#    - Verde
+#Valore di colori[-2]
+#    - Giallo
+#A quale indice corrisponde "verde" e quale sarebbe il suo corrispettivo indice negativo?
+#Ricaviamolo dalla numerazione svolta prima
+#"verde"  - lunghezza 5 + indice positivo 1 = 1 -5 = -4
+\end{lstlisting}
+
+
+\subsubsection{Risoluzioe Esercizio 2: \nameref{Esercizio2Liste}}
+
+\begin{lstlisting}
+punteggi = [85, 92, 78, 90, 88]
+# - Sostituisci il terzo elemento con 95
+
+    # Prima di sostituire il numero troviamolo, stampiamo la lunghezza della lista cosi da facilitare la numerazione degli elementi.
+    print(len(punteggi))
+    # Ora numeramio gli elementi
+    # b = 80 (30 + 50 = 80, il terzo elemento più l'ultimo)
+    # a = 10 (il primo elemento)
+    # c = 30 (il terzo elemento dalla fine)
+
+# Ora possiamo sostituire il terzo elemento con 95
+    punteggi[2] = 95
+    
+# - Aggiungi 100 alla fine della lista
+    # Qui possiamo agire in diversi modi: 
+    
+    #Concatenazione con una lista contenente il nuovo elemento:
+        punteggi = punteggi + [100]
+    
+    #Operatore di aggiunta in-place:
+        punteggi += [100]
+    
+    #Metodo extend con una lista singola:
+        punteggi.extend([100])
+    
+    #Slice assignment alla fine della lista:
+        punteggi[len(punteggi):] = [100]
+    
+    #Insert all'indice finale:
+        punteggi.insert(len(punteggi), 100)
+    
+    # - Inserisci 82 nella seconda posizione
+
+
+# === SECONDA PARTE ===
+
+# Scrivi il risultato di queste operazioni:
+
+lista1 = [1, 2, 3]
+lista2 = [4, 5]
+risultato1 = lista1 + lista2
+risultato2 = lista1 * 3
+
+    # risultato1 = [1, 2, 3, 4, 5] (concatenazione delle due liste)
+    # risultato2 = [1, 2, 3, 1, 2, 3, 1, 2, 3] (ripetizione della prima lista 3 volte)
+\end{lstlisting}
+
+
+\subsubsection{Risoluzione Esercizio 3: \nameref{Esercizio3Liste}}
+
+\begin{lstlisting}
+# Data una lista
+lettere = ["a", "b", "c", "d", "e", "f", "g"]
+
+# Primi tre elementi
+primi_tre = lettere[:3]  # ["a", "b", "c"]
+
+# Ultimi due elementi
+ultimi_due = lettere[-2:]  # ["f", "g"]
+
+# Elementi dalla posizione 2 alla 5 (inclusa)
+dalla_2_alla_5 = lettere[2:6]  # ["c", "d", "e", "f"]
+
+# Tutti tranne primo e ultimo
+senza_primo_ultimo = lettere[1:-1]  # ["b", "c", "d", "e", "f"]
+
+# === SECONDA PARTE ===
+
+Prevedi il risultato di questo codice:
+
+sequenza = [10, 20, 30, 40, 50, 60, 70]
+parte1 = sequenza[1:5]
+parte2 = sequenza[::2]
+parte3 = sequenza[5:1:-1]
+
+#parte1 = [20, 30, 40, 50] (elementi dall'indice 1 all'indice 4 incluso)
+#parte2 = [10, 30, 50, 70] (ogni elemento a passo 2, partendo dall'inizio)
+#parte3 = [60, 50, 40, 30] (dall'indice 5 all'indice 2 incluso, in ordine inverso)
+\end{lstlisting}
+
+\subsubsection{Risoluzione Esercizio 4: \nameref{Esercizio4Liste}}
+
+\begin{lstlisting}
+# Data una lista
+frutta = ["mela", "banana", "ciliegia"]
+
+# - Usa il metodo appropriato per aggiungere "arancia" alla fine
+    frutta.append("arancia")
+    print(frutta)  # ["mela", "banana", "ciliegia", "arancia"]
+    
+# - Usa il metodo corretto per trovare la posizione di "banana"
+    posizione_banana = frutta.index("banana")  # 1
+    
+# - Usa un metodo per contare quante volte appare "mela"
+    occorrenze_mela = frutta.count("mela")  # 1
+    
+# - Usa un metodo per rimuovere "ciliegia"
+    frutta.remove("ciliegia")
+    print(frutta)  # ["mela", "banana", "arancia"]
+
+
+# === SECONDA PARTE ===
+
+
+# Data una lista di numeri
+numeri = [42, 8, 16, 23, 4, 15]
+
+# - Ordina la lista in modo crescente
+    numeri.sort()
+    print(numeri)  # [4, 8, 15, 16, 23, 42]
+    
+# - Inverti l'ordine degli elementi
+    numeri.reverse()
+    print(numeri)  # [42, 23, 16, 15, 8, 4]
+    
+# - Qual è la differenza tra usare il metodo sort() e la funzione sorted()
+    # Differenza tra sort() e sorted():
+    # - sort() modifica la lista originale
+    # - sorted() crea una nuova lista ordinata lasciando l'originale intatta
+
+originale = [3, 1, 2]
+nuova = sorted(originale)
+print(originale)  # [3, 1, 2] rimane invariata
+print(nuova)      # [1, 2, 3] nuova lista ordinata
+\end{lstlisting}
+
+
+\subsubsection{Risoluzione Esercizio 5: \nameref{Esercizio5Liste}}
+
+\begin{lstlisting}
+# Analizza e predici l'Output
+
+a = [1, 2, 3]
+b = a
+b[0] = 10
+print(a)
+
+    # Soluzione: L'output sarà [10, 2, 3] 
+    # Spiegazione: b è un riferimento alla stessa lista di a. Modificando b, si  # modifica anche a perchè entrambe le variabili puntano allo stesso oggetto # in memoria.
+
+
+# === SECONDA PARTTE ===
+
+
+# Predici il risultato di questi confronti:
+
+lista1 = [1, 2, 3]
+lista2 = [1, 2, 3]
+lista3 = lista1
+
+print(lista1 == lista2)
+print(lista1 is lista2)
+print(lista1 is lista3)
+
+# lista1 == lista2  -> True (confronta i contenui che sono uguali)
+# lista1 is lista2 -> False (si riferiscono a oggetti diversi in memoria)
+# lista1 is lista3  -> True (si riferiscono allo stesso oggetto in memoria)
+
+
+lista1 == lista2 
+#True (confronta i contenuti, che sono uguali)
+lista1 is lista2 
+#False (si riferiscono a oggetti diversi in memoria)
+lista1 is lista3 
+#True (si riferiscono allo stesso oggetto in memoria)
+\end{lstlisting}
+
+
+\subsubsection{Risoluzione Esercizio 6: \nameref{Esercizio6Liste}}
+
+\begin{lstlisting}
+# Indentifica e correggi l'errore in questo codice:
+
+colori = ["rosso", "verde", "blu"]
+colori[3] = "giallo"  # Aggiungi giallo alla lista
+print(colori[4])      # Stampa il quinto elemento
+
+#Non si puo usare colori[3] = "giallo" perchè l'indice 3 è fuori dal range (la #lista ha indici 0, 1, 2).
+#Anche dopo aver aggiunto "giallo", colori[4] sarebbe fuori range.
+
+# Correzione:
+colori = ["rosso", "verde", "blu"]
+colori.append("giallo")  # Corretto: aggiunge "giallo" alla fine
+print(colori[3])         # Corretto: stampa il quarto elemento (giallo)
+
+
+
+# === SECONDA PARTE === 
+
+# Dissegna un diagramma di memoria che mostri lo stato delle varaibili dopo ogni istruzione
+
+
+lista1 = [10, 20]
+lista2 = lista1
+lista1.append(30)
+lista3 = lista1[:]
+lista3[0] = 99
+
+
+#lista1 = [10, 20]:
+
+#lista1 -> [10, 20]
+
+
+lista2 = lista1:
+
+#lista1 -> [10, 20]
+#lista2 -> [10, 20] (stesso oggetto di lista1)
+
+
+lista1.append(30):
+
+#lista1 -> [10, 20, 30]
+#lista2 -> [10, 20, 30] (stesso oggetto di lista1)
+
+
+lista3 = lista1[:]:
+
+#lista1 -> [10, 20, 30]
+#lista2 -> [10, 20, 30] (stesso oggetto di lista1)
+#lista3 -> [10, 20, 30] (nuovo oggetto, copia di lista1)
+
+
+lista3[0] = 99:
+
+#lista1 -> [10, 20, 30]
+#lista2 -> [10, 20, 30] (stesso oggetto di lista1)
+#lista3 -> [99, 20, 30]
+
+
+# === TERZA PARTE ===
+
+# Cosa stampa questo codice
+a = [1, 2, 3]
+b = [a, a]
+b[0][1] = 10
+print(b)
+print(a)
+
+
+print(b): [[1, 10, 3], [1, 10, 3]]
+print(a): [1, 10, 3]
+
+#Spiegazione:
+
+#a è una lista [1, 2, 3]
+#b è una lista che contiene due riferimenti alla stessa lista a: [[1, 2, 3], [1, #2, 3]]
+#b[0][1] = 10 modifica il secondo elemento della prima sottolista di b (che è #a), #quindi ora a è [1, 10, 3]
+#Poichè entrambi gli elementi di b sono riferimenti alla stessa lista a, la #modifica si riflette in entrambiprint(b): [[1, 10, 3], [1, 10, 3]]
+#print(a): [1, 10, 3]
+\end{lstlisting}
+
+\newpage

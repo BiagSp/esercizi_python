@@ -1,0 +1,261 @@
+\clearpage
+
+\subsubsection{Operazioni e Metodi Base}
+
+Le liste in Python offrono numerosi metodi incorporati che permettono di manipolarle in modo efficiente. Questi metodi sono funzionalità già pronte che consentono di aggiungere, rimuovere, ordinare e modificare gli elementi di una lista senza dover scrivere codice complesso.
+
+\subsubsection{Metodi per Aggiungere Elementi}\label{MetodiListe}
+
+Python fornisce diversi metodi per aggiungere elementi a una lista:
+
+\begin{lstlisting}[language=Python]
+# Creazione di una lista di base
+frutti = ["mela", "banana"]
+
+# Metodo append() - aggiunge un elemento alla fine della lista
+frutti.append("arancia")
+# Ora frutti è ["mela", "banana", "arancia"]
+
+# Metodo insert() - inserisce un elemento in una posizione specifica
+frutti.insert(1, "pera")  # Inserisce "pera" all'indice 1
+# Ora frutti è ["mela", "pera", "banana", "arancia"]
+
+# Metodo extend() - aggiunge tutti gli elementi di un'altra lista
+altri_frutti = ["kiwi", "ananas"]
+frutti.extend(altri_frutti)
+# Ora frutti è ["mela", "pera", "banana", "arancia", "kiwi", "ananas"]
+\end{lstlisting}
+
+La differenza tra \texttt{append()} e \texttt{extend()} è importante:
+\begin{itemize}
+    \item \texttt{append(x)} aggiunge \texttt{x} come un singolo elemento, anche se \texttt{x} è una lista
+    \item \texttt{extend(lista)} aggiunge ogni singolo elemento di \texttt{lista} alla lista originale
+\end{itemize}
+
+Esempio:
+\begin{lstlisting}[language=Python]
+lista1 = [1, 2, 3]
+lista2 = [4, 5]
+
+lista1.append(lista2)  # lista1 diventa [1, 2, 3, [4, 5]]
+                       # La lista2 è aggiunta come unico elemento
+
+lista3 = [1, 2, 3]
+lista3.extend(lista2)  # lista3 diventa [1, 2, 3, 4, 5]
+                       # Gli elementi di lista2 sono aggiunti singolarmente
+\end{lstlisting}
+
+\subsubsection{Metodi per Rimuovere Elementi}\label{MetodiListeRemove}
+
+Per rimuovere elementi da una lista, Python offre vari metodi:
+
+\begin{lstlisting}[language=Python]
+numeri = [10, 20, 30, 40, 50, 30]
+
+# Metodo remove() - rimuove la prima occorrenza di un valore
+numeri.remove(30)  # Rimuove il primo 30 trovato
+# Ora numeri è [10, 20, 40, 50, 30]
+
+# Metodo pop() - rimuove e restituisce l'elemento all'indice specificato
+elemento = numeri.pop(1)  # Rimuove e restituisce il secondo elemento (20)
+print(elemento)  # 20
+# Ora numeri è [10, 40, 50, 30]
+
+# Metodo pop() senza argomenti - rimuove e restituisce l'ultimo elemento
+ultimo = numeri.pop()  # Rimuove e restituisce l'ultimo elemento (30)
+print(ultimo)  # 30
+# Ora numeri è [10, 40, 50]
+
+# Istruzione del - rimuove l'elemento o la sezione specificata
+del numeri[0]  # Rimuove il primo elemento
+# Ora numeri è [40, 50]
+
+# Metodo clear() - svuota completamente la lista
+numeri.clear()
+# Ora numeri è []
+\end{lstlisting}
+
+\subsubsection{Gestione degli Errori}\label{GestioneErroriListeRemove}
+
+Quando si utilizzano i metodi di rimozione, è importante considerare alcuni possibili errori:
+
+\begin{itemize}
+    \item \texttt{remove(x)} genera un errore \texttt{ValueError} se l'elemento \texttt{x} non è presente nella lista
+    \item \texttt{pop(i)} e \texttt{del lista[i]} generano un errore \texttt{IndexError} se l'indice \texttt{i} è fuori range
+    \item Una volta rimosso un elemento, gli indici degli elementi successivi si spostano per riflettere la nuova posizione
+\end{itemize}
+
+Ecco come appaiono questi errori quando si verificano:
+
+\begin{lstlisting}[language=Python]
+# Esempio di ValueError con remove()
+numeri = [1, 2, 3]
+numeri.remove(5)  # Provando a rimuovere un elemento che non esiste
+\end{lstlisting}
+
+\begin{tcolorbox}[colback=red!5!white,colframe=red!75!black,fonttitle=\bfseries,title=Output del terminale]
+\begin{verbatim}
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+ValueError: list.remove(x): x not in list
+\end{verbatim}
+\end{tcolorbox}
+
+\begin{lstlisting}[language=Python]
+# Esempio di IndexError con pop()
+numeri = [1, 2, 3]
+numeri.pop(10)  # Provando ad accedere a un indice che non esiste
+\end{lstlisting}
+
+\begin{tcolorbox}[colback=red!5!white,colframe=red!75!black,fonttitle=\bfseries,title=Output del terminale]
+\begin{verbatim}
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+IndexError: pop index out of range
+\end{verbatim}
+\end{tcolorbox}
+
+\subsubsection{Metodi per Ottenere Informazioni}\label{MetodiInfoListe}
+
+Per ottenere informazioni su una lista e i suoi elementi:
+
+\begin{lstlisting}[language=Python]
+colori = ["rosso", "verde", "blu", "verde", "giallo"]
+
+# Funzione len() - restituisce il numero di elementi
+lunghezza = len(colori)
+print(lunghezza)  # 5
+
+# Metodo count() - conta quante volte un elemento appare nella lista
+occorrenze_verde = colori.count("verde")
+print(occorrenze_verde)  # 2
+
+# Metodo index() - trova l'indice della prima occorrenza di un elemento
+indice_blu = colori.index("blu")
+print(indice_blu)  # 2
+
+# E' anche possibile specificare l'intervallo di ricerca per index()
+indice_verde_secondo = colori.index("verde", 2)  # Cerca da indice 2 in poi
+print(indice_verde_secondo)  # 3
+\end{lstlisting}
+
+\subsubsection{Esempi di index() e count()}\label{EsempiInputCountListe}
+
+I metodi \texttt{index()} e \texttt{count()} sono utili per trovare e contare elementi in una lista. Vediamo come funzionano con un esempio visuale:
+
+\begin{lstlisting}[language=Python]
+colori = ["rosso", "verde", "blu", "verde", "giallo"]
+
+# Contare le occorrenze di "verde"
+occorrenze = colori.count("verde")    # Risultato: 2
+
+# Trovare l'indice della prima occorrenza di "blu"
+indice = colori.index("blu")          # Risultato: 2
+
+# Trovare l'indice della seconda occorrenza di "verde"
+indice_secondo_verde = colori.index("verde", 2)  # Risultato: 3
+                                                 # Comincia a cercare dall'indice 2
+\end{lstlisting}
+
+
+
+
+
+\subsubsection{Metodi per Ordinamento e Inversione}\label{MetodiOrdinamentoInversioneListe}
+
+Per ordinare o invertire gli elementi di una lista:
+
+\begin{lstlisting}[language=Python]
+numeri = [3, 1, 4, 1, 5, 9, 2]
+
+# Metodo sort() - ordina la lista in ordine crescente (modifica la lista originale)
+numeri.sort()
+print(numeri)  # [1, 1, 2, 3, 4, 5, 9]
+
+# Metodo sort() con parametro reverse - ordine decrescente
+numeri.sort(reverse=True)
+print(numeri)  # [9, 5, 4, 3, 2, 1, 1]
+
+# Funzione sorted() - crea una nuova lista ordinata senza modificare l'originale
+parole = ["zebra", "albero", "cane"]
+parole_ordinate = sorted(parole)
+print(parole)          # ["zebra", "albero", "cane"] (non modificata)
+print(parole_ordinate) # ["albero", "cane", "zebra"]
+
+# Metodo reverse() - inverte l'ordine degli elementi
+numeri.reverse()
+print(numeri)  # [1, 1, 2, 3, 4, 5, 9]
+\end{lstlisting}
+
+\begin{nota}
+I metodi \texttt{sort()} e \texttt{reverse()} modificano direttamente la lista originale e non restituiscono una nuova lista. Se hai bisogno di mantenere la lista originale, creando una copia, usa la funzione \texttt{sorted()} per l'ordinamento o lo slicing \texttt{[::-1]} per l'inversione.
+\end{nota}
+
+
+
+\begin{lstlisting}[language=Python]
+# Metodo copy() - crea una copia superficiale della lista
+originale = [1, 2, 3]
+copia = originale.copy()
+originale.append(4)
+print(copia)  # [1, 2, 3] (la copia non è influenzata)
+
+# Funzione list() - un altro modo per creare una copia
+altra_copia = list(originale)
+print(altra_copia)  # [1, 2, 3, 4]
+\end{lstlisting}
+
+\begin{tcolorbox}[colback=blue!5!white,colframe=blue!75!black,title=Riassunto dei metodi principali delle liste]
+\begin{tabularx}{\textwidth}{|l|X|}
+\hline
+\textbf{Metodo} & \textbf{Descrizione} \\
+\hline
+\texttt{append(x)} & Aggiunge l'elemento \texttt{x} alla fine della lista \\
+\hline
+\texttt{insert(i, x)} & Inserisce l'elemento \texttt{x} alla posizione \texttt{i} \\
+\hline
+\texttt{extend(iterable)} & Aggiunge tutti gli elementi dell'iterabile alla fine della lista \\
+\hline
+\texttt{remove(x)} & Rimuove la prima occorrenza dell'elemento \texttt{x} \\
+\hline
+\texttt{pop([i])} & Rimuove e restituisce l'elemento alla posizione \texttt{i} (o l'ultimo se \texttt{i} non è specificato) \\
+\hline
+\texttt{clear()} & Rimuove tutti gli elementi dalla lista \\
+\hline
+\texttt{index(x[, start[, end]])} & Restituisce l'indice della prima occorrenza di \texttt{x} (opzionalmente cercando solo dalla posizione \texttt{start} alla \texttt{end}) \\
+\hline
+\texttt{count(x)} & Restituisce il numero di occorrenze di \texttt{x} nella lista \\
+\hline
+\texttt{sort([key=None, reverse=False])} & Ordina gli elementi della lista (in-place) \\
+\hline
+\texttt{reverse()} & Inverte l'ordine degli elementi nella lista (in-place) \\
+\hline
+\texttt{copy()} & Restituisce una copia superficiale della lista \\
+\hline
+\end{tabularx}
+\end{tcolorbox}
+\vspace{0.3cm}
+
+
+\textbf{Ecco un esempio completo che mostra l'uso di diversi metodi delle liste:}
+
+\begin{lstlisting}[language=Python]
+# Creazione di una lista di numeri
+numeri = [5, 2, 8, 1, 9, 3]
+
+# Manipolazione della lista
+numeri.append(7)           # Aggiunge 7 alla fine: [5, 2, 8, 1, 9, 3, 7]
+numeri.insert(0, 0)        # Inserisce 0 all'inizio: [0, 5, 2, 8, 1, 9, 3, 7]
+numeri.remove(9)           # Rimuove il 9: [0, 5, 2, 8, 1, 3, 7]
+elemento = numeri.pop(3)   # Rimuove e restituisce l'elemento all'indice 3 (8)
+                           # numeri ora è [0, 5, 2, 1, 3, 7]
+
+# Informazioni sulla lista
+lunghezza = len(numeri)    # 6
+occorrenze = numeri.count(5)  # 1
+posizione = numeri.index(3)   # 4
+
+# Ordinamento e inversione
+numeri.sort()              # [0, 1, 2, 3, 5, 7]
+numeri.reverse()           # [7, 5, 3, 2, 1, 0]
+\end{lstlisting}

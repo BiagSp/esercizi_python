@@ -1,0 +1,161 @@
+
+
+
+\section{Variabili e Tipi di Dati}
+
+\subsection*{Introduzione}
+In questa sezione esploreremo il cuore della programmazione Python: variabili e tipi di dati. Vedremo come Python gestisce diversi tipi di informazioni, come memorizzarle in variabili, e come manipolarle attraverso varie operazioni. Comprenderemo le regole per denominare le variabili, come Python interpreta i diversi tipi di dati, e come interagiscono tra loro. 
+
+In Python, le variabili sono contenitori per memorizzare valori di dati. A differenza di altri linguaggi di programmazione, Python non richiede di dichiarare esplicitamente il tipo di una variabile prima di usarla. Il tipo viene determinato automaticamente in base al valore assegnato.
+
+\subsection{Dichiarazione e Assegnazione delle Variabili}\label{bestPractice}
+\begin{lstlisting}
+# Dichiarazione e assegnazione di variabili
+nome = "Mario"      # Una stringa
+eta = 30            # Un intero
+altezza = 1.75      # Float
+e_studente = False  # Booleano
+\end{lstlisting}
+
+
+\subsection{Regole e best practice per denominare le variabili}
+
+In Python, i nomi delle variabili devono seguire regole precise e alcune convenzioni che rendono il codice più leggibile e manutenibile.
+
+\begin{tcolorbox}[colback=blue!5!white,colframe=blue!75!black,title=Regole sintattiche]
+\begin{itemize}[leftmargin=*,itemsep=0.5em]
+    \item \textbf{Caratteri consentiti}: Lettere (a-z, A-Z), numeri (0-9) e underscore (\_)
+    \item \textbf{Primo carattere}: Deve essere una lettera o un underscore, mai un numero
+    \item \textbf{Case sensitivity}: \texttt{nome}, \texttt{Nome} e \texttt{NOME} sono tre variabili diverse
+    \item \textbf{Parole riservate}: Non è possibile usare parole chiave di Python (come \texttt{if}, \texttt{for}, \texttt{while})
+\end{itemize}
+\end{tcolorbox}
+
+\begin{tcolorbox}[colback=green!5!white,colframe=green!75!black,title=Convenzioni di stile (PEP 8)]
+\begin{itemize}[leftmargin=*,itemsep=0.5em]
+    \item \textbf{snake\_case}: Per variabili e funzioni (es. \texttt{nome\_utente})
+    \item \textbf{SCREAMING\_SNAKE\_CASE}: Per costanti (es. \texttt{MAX\_TENTATIVI})
+    \item \textbf{CamelCase}: Per classi (es. \texttt{PersonaUtente})
+    \item \textbf{Nomi significativi}: Evitare sigle come \texttt{x}, \texttt{y}, preferire nomi descrittivi
+    \item \textbf{Underscore iniziale}: \texttt{\_variabile} suggerisce uso interno o privato
+\end{itemize}
+\end{tcolorbox}
+
+\begin{lstlisting}
+# Esempi di nomi validi
+nome = "Alice"
+_eta = 25
+nome_completo = "Alice Rossi"
+variabile1 = 42
+COSTANTE = 3.14159
+
+# Esempi di nomi non validi
+# 1variabile = 10    # Inizia con un numero (errore di sintassi)
+# for = "ciclo"      # E una parola riservata (errore di sintassi)
+# nome-utente = "Mario"  # Il trattino non e' consentito
+\end{lstlisting}
+
+\vspace{0.5cm}
+
+
+\clearpage
+\section{Metodi principali per i tipi di dati Python}
+
+\subsection*{Cos'è un metodo in Python?}
+
+In Python, i \textbf{metodi} sono funzioni speciali associate a oggetti di specifici tipi di dati. A differenza delle funzioni standard che accettano dati come argomenti, i metodi sono "collegati" agli oggetti stessi attraverso la notazione punto (\texttt{oggetto.metodo()}).
+
+Ogni tipo di dato in Python possiede metodi specifici progettati per operazioni comuni e naturali su quel tipo. Questa caratteristica è parte fondamentale del paradigma della programmazione orientata agli oggetti che Python supporta.
+
+
+\begin{lstlisting}[style=pythonstyle]
+# Funzione standard
+len("Python")  # 6
+
+# Metodo
+"Python".upper()  # "PYTHON"
+\end{lstlisting}
+
+
+\subsection*{Metodi e mutabilità}\label{MutabilitàImmutabilità}
+
+Un concetto cruciale per comprendere i metodi in Python è la \textbf{mutabilità}. I tipi di dati in Python si dividono in due categorie:
+
+\begin{itemize}
+    \item \textbf{Tipi immutabili}: una volta creati, non possono essere modificati (stringhe, tuple, numeri)
+    \item \textbf{Tipi mutabili}: possono essere modificati dopo la creazione (liste, dizionari, set)
+\end{itemize}
+
+Questa distinzione influenza profondamente il comportamento dei metodi:
+
+\begin{tcolorbox}[colback=blue!5!white,colframe=blue!75!black,title=Comportamento dei Metodi]
+\begin{tabularx}{\textwidth}{|l|X|}
+\hline
+\textbf{Tipi immutabili} & I metodi \textbf{restituiscono sempre} un nuovo oggetto, lasciando l'originale invariato \\
+\hline
+\textbf{Tipi mutabili} & I metodi spesso \textbf{modificano direttamente} l'oggetto (operazioni in-place) \\
+\hline
+\end{tabularx}
+\end{tcolorbox}
+
+\subsection*{Metodi delle stringhe}
+
+Le stringhe (\texttt{str}) sono sequenze immutabili di caratteri, quindi i loro metodi restituiscono sempre nuove stringhe. Questi metodi consentono di trasformare e analizzare testo in modi potenti e flessibili.
+
+La potenza dei metodi per stringhe si apprezza particolarmente nell'elaborazione del testo, dove possiamo concatenare più operazioni in sequenza:
+
+
+\begin{lstlisting}[style=pythonstyle]
+# Pulizia e parsing di dati testuali
+testo_grezzo = "  python, java, C++  "
+linguaggi = testo_grezzo.strip().lower().split(", ")
+print(linguaggi)  # ['python', 'java', 'c++']
+\end{lstlisting}
+
+
+
+
+\subsection*{Principi guida per l'uso dei metodi}
+
+Quando lavori con i metodi in Python, tieni a mente questi principi:
+
+\begin{enumerate}
+    \item \textbf{Verifica la mutabilità}: prima di usare un metodo, capisci se stai lavorando con un tipo mutabile o immutabile
+    \item \textbf{Controlla il valore restituito}: alcuni metodi restituiscono un nuovo oggetto, altri modificano l'oggetto esistente
+    \item \textbf{Leggi la documentazione}: quando sei in dubbio, consulta la documentazione ufficiale
+\end{enumerate}
+
+\begin{nota}
+La documentazione ufficiale di Python (\url{https://docs.python.org/3/library/stdtypes.html}) contiene l'elenco completo di tutti i metodi disponibili per ciascun tipo di dato, con spiegazioni dettagliate ed esempi.
+\end{nota}
+
+Di seguito vengono riportate le tabelle con i principali metodi per la manipolazione delle stringhe in Python, si tratta di metodi preinstallati in Python:
+
+
+% Stringhe (str)
+\begin{table}[H]
+\centering
+\caption{Metodi essenziali per le stringhe (\texttt{str})}
+\begin{tabularx}{\textwidth}{|l|X|l|}
+\hline
+\textbf{Metodo} & \textbf{Descrizione} & \textbf{Esempio} \\
+\hline
+\texttt{upper()} & Converte in maiuscolo & \texttt{"python".upper() → "PYTHON"} \\
+\hline
+\texttt{lower()} & Converte in minuscolo & \texttt{"Python".lower() → "python"} \\
+\hline
+\texttt{strip()} & Rimuove spazi agli estremi & \texttt{"  Python  ".strip() → "Python"} \\
+\hline
+\texttt{replace(old, new)} & Sostituisce le occorrenze & \texttt{"Hello".replace("l", "x") → "Hexxo"} \\
+\hline
+\texttt{split(sep)} & Divide in una lista & \texttt{"a,b,c".split(",") → ["a", "b", "c"]} \\
+\hline
+\texttt{join(iterable)} & Unisce una lista in stringa & \texttt{"-".join(["a", "b"]) → "a-b"} \\
+\hline
+\texttt{find(sub)} & Trova posizione sottostringa & \texttt{"Python".find("th") → 2} \\
+\hline
+\end{tabularx}
+\end{table}
+
+
+
