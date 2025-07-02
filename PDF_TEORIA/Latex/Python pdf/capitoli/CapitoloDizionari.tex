@@ -17,7 +17,7 @@ dizionario = {
 }
 
 #Dichiarazione tramite metodo dict()
-dizionario_Dict = dict("chiave"=valore1, "chiave2"=valore2, "chiave3"=valore3)
+dizionario_Dict = dict(chiave=valore1, chiave2=valore2, chiave3=valore3)
 \end{lstlisting}
 \vspace{0.5cm}
 Per quanto riguarda il metodo \textit{\textbf{dict(),}} bisogna approfondire alcuni aspetti, in quanto questo metodo ha alcune restrizioni, rispetto alla dichiarazione canonica.
@@ -53,6 +53,67 @@ dizionario = {
     "chiave3":valore3
 }
 \end{lstlisting}
+\vspace{0.5cm}
+
+Le chiavi hanno delle restrizioni specifiche che derivano dall'implementazione basata su \textbf{tabelle hash} sottostanti.
+Comprendere questi aspetti teorici aiuta a utilizzare i dizionari in modo più efficace e consapevole.
+
+
+\subsubsection{Meccanismo delle Tabelle Hash}\label{MeccanismoTabellaHashDict}
+Analizziamo attentamente la struttura delle tabelle Hash.
+I dizionari in Python implementano una strutta dati tramite tabelle Hash, che garantisce accesso rapido agli elementi. Il processo funziona in questa maniera.
+\vspace{0.3cm}
+
+\begin{itemize}
+    \item \textbf{Calcolo dell'Hash:} Quandi si inserisce una coppia chiave-valore, Python calcola un valore hash della chiave
+    \item \textbf{Mappatura all'Indice:} Il valore Hash viene convertito in un indice dell'array interno
+    \item \textbf{Memorizzazione:} Il valore viene memorizzato a quell'Indice
+    \item \textbf{Recupero:} Per accedere al valore, si ricalcola l'hash della chiave e si accede direttamente all'indice
+\end{itemize}
+\vspace{0.5cm}
+
+\begin{lstlisting}
+# Esempio concettuale del processo interno
+# 1. Inserimento
+chiave =  "nome"
+valore = "Mario"
+hash_valore = hash(chiave) # Es. -674930604
+indice = hash_valore % dimensione_tabella # Es. -674930604 % 8 = 4
+
+# 2. Accesso
+chiave_cercata = "nome"
+hash_cercato = hash(chiave_cercata)  # Stesso hash: -674930604
+indice_calcolato = hash_cercato % dimensione_tabella  # Stesso indice: 4
+# return tabella[4][1]  # "Mario"
+
+print(f"Hash di 'nome': {hash('nome')}")
+print(f"Hash di 'cognome': {hash('cognome')}")
+print(f"Hash di 42: {hash(42)}")
+\end{lstlisting}
+\vspace{0.5cm}
+
+\subsubsection{Stabilità dell'Hash}\label{StabilitàHashDict}
+Il valore hash deve rimanere \textbf{costante} durante tutta la vita dell'oggetto, altrimenti il dizionario non riuscirebbe più a trovare 
+le chiavi inserite precedentemente.
+\vspace{0.3cm}
+
+\begin{lstlisting}
+# Dimostrazione della stabilità dell'hash
+chiave_stabile = "test"
+hash_iniziale = hash(chiave_stabile)
+
+# Simulazione di accessi multipli
+for i in range(3):
+    hash_corrente = hash(chiave_stabile)
+    print(f"Accesso {i+1}: hash = {hash_corrente}")
+    assert hash_corrente == hash_iniziale, "Hash instabile!"
+
+print("Hash stabile per tutta la durata del programma")
+\end{lstlisting}
+\vspace{0.5cm}
+
+
+
 
 
 \vspace{0.5cm}

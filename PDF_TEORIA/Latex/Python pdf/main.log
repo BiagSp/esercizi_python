@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.7.2)  2 JUL 2025 00:35
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.7.2)  2 JUL 2025 15:27
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1501,12 +1501,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 125--127
 
 
 [40]
-<pdf/Liste.pdf, id=1563, 597.73312pt x 845.40843pt>
+<pdf/Liste.pdf, id=1573, 597.73312pt x 845.40843pt>
 File: pdf/Liste.pdf Graphic file (type pdf)
 <use pdf/Liste.pdf>
 Package pdftex.def Info: pdf/Liste.pdf  used on input line 152.
 (pdftex.def)             Requested size: 597.73166pt x 845.40636pt.
-<pdf/Liste.pdf, id=1565, page=1, 597.73312pt x 845.40843pt>
+<pdf/Liste.pdf, id=1575, page=1, 597.73312pt x 845.40843pt>
 File: pdf/Liste.pdf Graphic file (type pdf)
 <use pdf/Liste.pdf, page 1>
 Package pdftex.def Info: pdf/Liste.pdf , page1 used on input line 152.
@@ -1535,7 +1535,7 @@ Package pdftex.def Info: pdf/Liste.pdf , page1 used on input line 152.
 [42
 
  <./pdf/Liste.pdf>]
-<pdf/Liste.pdf, id=1793, page=2, 597.73312pt x 845.40843pt>
+<pdf/Liste.pdf, id=1803, page=2, 597.73312pt x 845.40843pt>
 File: pdf/Liste.pdf Graphic file (type pdf)
 <use pdf/Liste.pdf, page 2>
 Package pdftex.def Info: pdf/Liste.pdf , page2 used on input line 152.
@@ -1553,7 +1553,7 @@ Package pdftex.def Info: pdf/Liste.pdf , page2 used on input line 152.
 [43
 
  <./pdf/Liste.pdf>]
-<pdf/Liste.pdf, id=1980, page=3, 597.73312pt x 845.40843pt>
+<pdf/Liste.pdf, id=1990, page=3, 597.73312pt x 845.40843pt>
 File: pdf/Liste.pdf Graphic file (type pdf)
 <use pdf/Liste.pdf, page 3>
 Package pdftex.def Info: pdf/Liste.pdf , page3 used on input line 152.
@@ -1571,7 +1571,7 @@ Package pdftex.def Info: pdf/Liste.pdf , page3 used on input line 152.
 [44
 
  <./pdf/Liste.pdf>]
-<pdf/Liste.pdf, id=2189, page=4, 597.73312pt x 845.40843pt>
+<pdf/Liste.pdf, id=2199, page=4, 597.73312pt x 845.40843pt>
 File: pdf/Liste.pdf Graphic file (type pdf)
 <use pdf/Liste.pdf, page 4>
 Package pdftex.def Info: pdf/Liste.pdf , page4 used on input line 152.
@@ -1589,7 +1589,7 @@ Package pdftex.def Info: pdf/Liste.pdf , page4 used on input line 152.
 [45
 
  <./pdf/Liste.pdf>]
-<pdf/Liste.pdf, id=2329, page=5, 597.73312pt x 845.40843pt>
+<pdf/Liste.pdf, id=2339, page=5, 597.73312pt x 845.40843pt>
 File: pdf/Liste.pdf Graphic file (type pdf)
 <use pdf/Liste.pdf, page 5>
 Package pdftex.def Info: pdf/Liste.pdf , page5 used on input line 152.
@@ -1694,12 +1694,12 @@ Overfull \hbox (47.99997pt too wide) in paragraph at lines 277--301
 [66]
 
 [67]
-<pdf/Tuple.pdf, id=3297, 597.73312pt x 845.40843pt>
+<pdf/Tuple.pdf, id=3307, 597.73312pt x 845.40843pt>
 File: pdf/Tuple.pdf Graphic file (type pdf)
 <use pdf/Tuple.pdf>
 Package pdftex.def Info: pdf/Tuple.pdf  used on input line 441.
 (pdftex.def)             Requested size: 597.73166pt x 845.40636pt.
-<pdf/Tuple.pdf, id=3299, page=1, 597.73312pt x 845.40843pt>
+<pdf/Tuple.pdf, id=3309, page=1, 597.73312pt x 845.40843pt>
 File: pdf/Tuple.pdf Graphic file (type pdf)
 <use pdf/Tuple.pdf, page 1>
 Package pdftex.def Info: pdf/Tuple.pdf , page1 used on input line 441.
@@ -1728,7 +1728,7 @@ Package pdftex.def Info: pdf/Tuple.pdf , page1 used on input line 441.
 [69
 
  <./pdf/Tuple.pdf>]
-<pdf/Tuple.pdf, id=3360, page=2, 597.73312pt x 845.40843pt>
+<pdf/Tuple.pdf, id=3370, page=2, 597.73312pt x 845.40843pt>
 File: pdf/Tuple.pdf Graphic file (type pdf)
 <use pdf/Tuple.pdf, page 2>
 Package pdftex.def Info: pdf/Tuple.pdf , page2 used on input line 441.
@@ -1746,7 +1746,7 @@ Package pdftex.def Info: pdf/Tuple.pdf , page2 used on input line 441.
 [70
 
  <./pdf/Tuple.pdf>]
-<pdf/Tuple.pdf, id=3433, page=3, 597.73312pt x 845.40843pt>
+<pdf/Tuple.pdf, id=3443, page=3, 597.73312pt x 845.40843pt>
 File: pdf/Tuple.pdf Graphic file (type pdf)
 <use pdf/Tuple.pdf, page 3>
 Package pdftex.def Info: pdf/Tuple.pdf , page3 used on input line 441.
@@ -1792,18 +1792,20 @@ Package pdftex.def Info: pdf/Tuple.pdf , page3 used on input line 441.
 
 [81]
 
-[82])
+[82]
 
-[83]
+[83])
+
+[84]
 \openout2 = `capitoli/CapitoloSet.aux'.
 
  (capitoli/CapitoloSet.tex
-<pdf/Unione Insiemi.pdf, id=4176, 597.73312pt x 845.40843pt>
+<pdf/Unione Insiemi.pdf, id=4219, 597.73312pt x 845.40843pt>
 File: pdf/Unione Insiemi.pdf Graphic file (type pdf)
 <use pdf/Unione Insiemi.pdf>
 Package pdftex.def Info: pdf/Unione Insiemi.pdf  used on input line 33.
 (pdftex.def)             Requested size: 597.73166pt x 845.40636pt.
-<pdf/Unione Insiemi.pdf, id=4178, page=1, 597.73312pt x 845.40843pt>
+<pdf/Unione Insiemi.pdf, id=4221, page=1, 597.73312pt x 845.40843pt>
 File: pdf/Unione Insiemi.pdf Graphic file (type pdf)
 <use pdf/Unione Insiemi.pdf, page 1>
 Package pdftex.def Info: pdf/Unione Insiemi.pdf , page1 used on input line 33.
@@ -1814,7 +1816,7 @@ Package pdftex.def Info: pdf/Unione Insiemi.pdf , page1 used on input line 33.
 (pdftex.def)             Requested size: 448.29874pt x 634.05476pt.
 
 
-[84
+[85
 
 
 
@@ -1833,15 +1835,15 @@ File: pdf/Unione Insiemi.pdf Graphic file (type pdf)
 <use pdf/Unione Insiemi.pdf, page 1>
 Package pdftex.def Info: pdf/Unione Insiemi.pdf , page1 used on input line 33.
 (pdftex.def)             Requested size: 448.29874pt x 634.05476pt.
-[85
+[86
 
  <./pdf/Unione Insiemi.pdf>]
-<pdf/Intetrsezione insiemi.pdf, id=4225, 597.73312pt x 845.40843pt>
+<pdf/Intetrsezione insiemi.pdf, id=4268, 597.73312pt x 845.40843pt>
 File: pdf/Intetrsezione insiemi.pdf Graphic file (type pdf)
 <use pdf/Intetrsezione insiemi.pdf>
 Package pdftex.def Info: pdf/Intetrsezione insiemi.pdf  used on input line 38.
 (pdftex.def)             Requested size: 597.73166pt x 845.40636pt.
-<pdf/Intetrsezione insiemi.pdf, id=4227, page=1, 597.73312pt x 845.40843pt>
+<pdf/Intetrsezione insiemi.pdf, id=4270, page=1, 597.73312pt x 845.40843pt>
 File: pdf/Intetrsezione insiemi.pdf Graphic file (type pdf)
 <use pdf/Intetrsezione insiemi.pdf, page 1>
 Package pdftex.def Info: pdf/Intetrsezione insiemi.pdf , page1 used on input line 38.
@@ -1852,7 +1854,7 @@ Package pdftex.def Info: pdf/Intetrsezione insiemi.pdf , page1 used on input lin
 (pdftex.def)             Requested size: 448.29874pt x 634.05476pt.
 
 
-[86]
+[87]
 File: pdf/Intetrsezione insiemi.pdf Graphic file (type pdf)
 <use pdf/Intetrsezione insiemi.pdf, page 1>
 Package pdftex.def Info: pdf/Intetrsezione insiemi.pdf , page1 used on input line 38.
@@ -1867,30 +1869,30 @@ File: pdf/Intetrsezione insiemi.pdf Graphic file (type pdf)
 <use pdf/Intetrsezione insiemi.pdf, page 1>
 Package pdftex.def Info: pdf/Intetrsezione insiemi.pdf , page1 used on input line 38.
 (pdftex.def)             Requested size: 448.29874pt x 634.05476pt.
-[87
+[88
 
  <./pdf/Intetrsezione insiemi.pdf>])
 
-[88] (main.aux (capitoli/capitoloI(intro).aux) (capitoli/capitoloII(Variabili).aux) (capitoli/Operatori.aux) (capitoli/ApprofondimentoVariabili.aux) (capitoli/eserciziPrimoIcapitolo.aux) (capitoli/CapitoloIIIListe.aux) (capitoli/SintassiBaseListe.aux) (capitoli/operazioniMetodiListe.aux) (capitoli/comportamentoListeinMemoria.aux) (capitoli/eserciziPerListe.aux) (capitoli/CapitoloIII.2Tuple.aux) (capitoli/CapitoloDizionari.aux) (capitoli/CapitoloSet.aux))
+[89] (main.aux (capitoli/capitoloI(intro).aux) (capitoli/capitoloII(Variabili).aux) (capitoli/Operatori.aux) (capitoli/ApprofondimentoVariabili.aux) (capitoli/eserciziPrimoIcapitolo.aux) (capitoli/CapitoloIIIListe.aux) (capitoli/SintassiBaseListe.aux) (capitoli/operazioniMetodiListe.aux) (capitoli/comportamentoListeinMemoria.aux) (capitoli/eserciziPerListe.aux) (capitoli/CapitoloIII.2Tuple.aux) (capitoli/CapitoloDizionari.aux) (capitoli/CapitoloSet.aux))
  ***********
 LaTeX2e <2025-06-01> patch level 1
 L3 programming layer <2025-06-09>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: DEEF2E3C5059AAB74E55A5D6F33FB4F3;31489.
+(rerunfilecheck)             Checksum: D3D8C9738C4392C51B585B646655DC10;31886.
  ) 
 Here is how much of TeX's memory you used:
- 40402 strings out of 468221
- 842932 string characters out of 5432892
- 1692430 words of memory out of 5000000
- 66201 multiletter control sequences out of 15000+600000
+ 40448 strings out of 468221
+ 843714 string characters out of 5432892
+ 1692432 words of memory out of 5000000
+ 66215 multiletter control sequences out of 15000+600000
  648024 words of font info for 93 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  103i,18n,104p,659b,2698s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\spabi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm0700.pk> <C:\Users\spabi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm0800.pk> <C:\Users\spabi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt1095.pk> <C:\Users\spabi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1000.pk> <C:\Users\spabi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcbx1728.pk> <C:\Users\spabi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbi1200.pk> <C:\Users\spabi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tctt1200.pk> <C:\Users\spabi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt1000.pk> <C:\Users\spabi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm0600.pk> <C:\Users\spabi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt1200.pk> <C:\Users\spabi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1200.pk> <C:\Users\spabi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1440.pk> <C:\Users\spabi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecti1200.pk> <C:\Users\spabi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1200.pk> <C:\Users\spabi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1728.pk> <C:\Users\spabi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1200.pk> <C:\Users\spabi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1095.pk> <C:\Users\spabi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1095.pk> <C:\Users\spabi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1440.pk> <C:\Users\spabi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm2074.pk><C:/Users/spabi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/spabi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/spabi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/spabi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/spabi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on main.pdf (88 pages, 1373639 bytes).
+Output written on main.pdf (89 pages, 1382105 bytes).
 PDF statistics:
- 5468 PDF objects out of 6186 (max. 8388607)
- 2070 named destinations out of 2073 (max. 500000)
- 1231 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 5518 PDF objects out of 6186 (max. 8388607)
+ 2102 named destinations out of 2487 (max. 500000)
+ 1247 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -138,11 +138,13 @@
 \contentsline {subsection}{\numberline {5.10}Dizionari}{79}{subsection.5.10}%
 \contentsline {subsubsection}{\numberline {5.10.1}Chiavi - Valori}{79}{subsubsection.5.10.1}%
 \contentsline {subsubsection}{\numberline {5.10.2}Caratteristiche delle Chiavi}{79}{subsubsection.5.10.2}%
-\contentsline {subsection}{\numberline {5.11}Set}{84}{subsection.5.11}%
-\contentsline {subsection}{\numberline {5.12}Caretteristiche Fondamentali}{84}{subsection.5.12}%
-\contentsline {subsubsection}{\numberline {5.12.1}Teoria degli insiemi}{84}{subsubsection.5.12.1}%
-\contentsline {subsubsection}{\numberline {5.12.2}Uguaglianza e Principio di Estensionalità}{84}{subsubsection.5.12.2}%
-\contentsline {subsubsection}{\numberline {5.12.3}Operazioni tra Insiemi}{84}{subsubsection.5.12.3}%
-\contentsline {paragraph}{Unione tra Insiemi}{84}{paragraph*.20}%
-\contentsline {paragraph}{Intersezione tra Insiemi}{86}{paragraph*.21}%
-\contentsline {paragraph}{Differenza tra Insiemi}{88}{paragraph*.22}%
+\contentsline {subsubsection}{\numberline {5.10.3}Meccanismo delle Tabelle Hash}{80}{subsubsection.5.10.3}%
+\contentsline {subsubsection}{\numberline {5.10.4}Stabilità dell'Hash}{80}{subsubsection.5.10.4}%
+\contentsline {subsection}{\numberline {5.11}Set}{85}{subsection.5.11}%
+\contentsline {subsection}{\numberline {5.12}Caretteristiche Fondamentali}{85}{subsection.5.12}%
+\contentsline {subsubsection}{\numberline {5.12.1}Teoria degli insiemi}{85}{subsubsection.5.12.1}%
+\contentsline {subsubsection}{\numberline {5.12.2}Uguaglianza e Principio di Estensionalità}{85}{subsubsection.5.12.2}%
+\contentsline {subsubsection}{\numberline {5.12.3}Operazioni tra Insiemi}{85}{subsubsection.5.12.3}%
+\contentsline {paragraph}{Unione tra Insiemi}{85}{paragraph*.20}%
+\contentsline {paragraph}{Intersezione tra Insiemi}{87}{paragraph*.21}%
+\contentsline {paragraph}{Differenza tra Insiemi}{89}{paragraph*.22}%
