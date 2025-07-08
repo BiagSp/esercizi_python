@@ -1,8 +1,60 @@
 \subsection{Dizionari}\label{IncipitDizionari}
 
-Fino ad adesso abbiamo affrontato come strutturare i dati tramite le liste e le tuple, in Python esiste anche un ulteriore metodo per strutturare i dati, i \textit{\textbf{dizionari.}}
 
-A differenza delle liste e delle tuple, i \textit{\textbf{dizionari}} offrono una metodologia di collezione dei dati in più, quella di abbinare ogni valore a una chiave.
+%Versione 2
+Fino ad ora abbiamo imparato a organizzare i dati usando Liste e Tuple. Ma Python ci offre un terzo strumento ancora più potente: \textbf{i Dizionari.}
+
+Pensiamo per esempio alla rubrica del telefono. Quando vogliamo chiamare, per esempio Marco, non scorriamo i contatti dall'inizio fino ad arrivare a Marco, giusto?
+Digitiamo semplicemente "Marco" nella barra di ricerca e ci viene mostrato instantaneamente il numero di Marco.
+
+Cerchiamo di creare una rubrica con le conoscenze apprese fino ad ora, immaginiamo di organizzare una serie di contatti per la nostra rubrica.
+Abbiamo avuto a che fare con Liste e Tuple, ed ognuna di essa presenta delle peculiarità diverse ma che possono tornare utile per il nostro bisogno.
+Optiamo per creare la rubrica tramite Tuple concatenate con le Liste, in modo tale da ovviare al problema dell'Immutabilità dei dati, in questo modo
+possiamo modificare i nomi e i numeri di telefono.
+
+\begin{lstlisting}
+rubrica = (
+["Marco", 33298194], 
+["Lucia", 3982129391, 998908123],
+["Andrea", 3289174982])
+\end{lstlisting}
+
+Sembrerebbe una soluzione ottimale, ma presenta un piccolo problema, la ricerca del contatto risulterebbe complicata, dato che dovremmo conoscere
+l'indice di riferimento del contatto per poterlo selezionare immediatamente, altrimenti dovremmo cercare tra tutti i contatti fino a quando 
+non troviamo il contatto desiderato.
+
+Bene i \textbf{Dizionari} ci aiutano a risolvere questo problema tramite il sistema \textbf{chiave-valore:} ogni \textbf{valore} (numero di telefono)
+è collegato direttamente alla sua \textbf{chiave} (nome del contatto) identificativa. Proprio ciò che avviene nella rubrica del telefono.
+Affronteremo meglio questo sistema nei capitoli seguenti in modo tale da capire limitazioni e utilità che ne concernano.
+
+%Fino ad adesso abbiamo affrontato come organizzare i dati tramite le liste e le tuple,
+%in Python esiste anche un ulteriore metodo per organizzare i dati, i \textit{\textbf{dizionari.}}
+
+%A differenza delle Tuple e delle Liste, i \textbf{Dizionari} offrono una migliore organizzazione dei dati, il che li rende apprezzabili sia
+%in termini di operativitià che di utilizzo. Immagina di avere la rubrica del telefono, dove ad ogni nome corrisponde un numero di telefono,
+%se dovessi organizzare i dati in modo intelligente penseresti che usare le Tuple per organizzare la rubrica sia un'ottima scelta,
+%dato che anche possibile integrare le liste dentro le Tuple, come abbiamo visto nel relativo capitolo \nameref{Tuple},
+ %rifare con capitolo esatto
+
+%In modo tale da avere il nome correlato con il numero di telefonico, ed apportare le eventuali modifiche dato che la Tupla creata fa riferimento
+%ad una lista modificabile. Bene ovviamente per una rubrica di circa 20 numeri di telefono la scelta di usare una Tupla concatenata ad una lista
+%are ottimanle, ma se la rubrica detiene centinaia se non migliaia di numeri, l'organizzazione tramite Tuple concatenate andrebbe ancora bene,
+%e non fosse che la ricerca risulterebbe abbastanza difficoltosa, dato che le Tuple mantengono l'ordine di creazione e anche se si optasse
+%er le Liste nidificate il problema resterebbe. In questo caso i dizionari risolvono questo annoso problema dato che per ogni nome risulterà 
+%il corrispettivo numero di telefono, grazie al concetto di chiave-valore.
+
+%A differenza delle liste e delle tuple, i \textit{\textbf{dizionari}} offrono una metodologia di collezione dei dati in più, 
+%immagina di avere un elenco telefonico, quindi hai numero di telefono e relativo nome a cui appartiene il numero, bene se volessi organizzare
+%questi dati con i metodi già affrontati, Liste, Tuple, potremmo pensare che le Tuple sia perfetto come metodo di organizzazione dei dati, ma c'è
+%un piccolo problema le tuple non sono modificabili, o per lo meno gli elementi al suo interno non sono modificabili a meno di creare nuove tuple,
+%come abbiamo visto nei capitoli affrontati \hyperref[Tuple]]{Metodi per modificare le Tuple}
+%quella di abbinare ogni valore a una chiave.
+%Affronteremo poco più avanti il concetto di chiave-valore, al momento ci soffermeremo su come si dichiara un dizionario e gli aspetti intrinseci che alcuni
+%metodi comportano.
+
+
+\subsubsection{Metodi per dichiarare un Dizionario}\label{DictDichiarazione}
+Per dichiarare un \textbf{dizionario} in Python esistono vari metodi, esattamente per come abbiamo visto con le \hyperref[ListeCap1]{Metodi dichiarativi per Liste}
 
 Si dichiarano tramite parentesi graffe \textit{\textbf{{}}} e come le liste possono contenere elementi di tipo diversi: \textit{Booleani, stringhe, interi, float.} Come per le liste esiste il metodo built-in di Python per dichiarare un dizionario: dict()
 
@@ -20,7 +72,7 @@ dizionario = {
 dizionario_Dict = dict(chiave=valore1, chiave2=valore2, chiave3=valore3)
 \end{lstlisting}
 \vspace{0.5cm}
-Per quanto riguarda il metodo \textit{\textbf{dict(),}} bisogna approfondire alcuni aspetti, in quanto questo metodo ha alcune restrizioni, rispetto alla dichiarazione canonica.
+Per quanto riguarda il metodo \textit{\textbf{dict()}}, bisogna approfondire alcuni aspetti, in quanto questo metodo ha alcune restrizioni, rispetto alla dichiarazione canonica.
 
 \vspace{0.5cm}
 \begin{lstlisting}
@@ -30,7 +82,7 @@ Con {} puoi usare chiavi di qualsiasi tipo (anche numeri o tuple), mentre con di
 Se vuoi creare un dizionario da una lista di coppie chiave-valore, dict() può essere comodo:
 """
 
-coppie = [("nome", "Luca"), ("età", 30), ("città", "Milano")]
+coppie = [("nome", "Luca"), ("eta'", 30), ("citta'", "Milano")]
 persona = dict(coppie)
 
 \end{lstlisting}
